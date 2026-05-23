@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PeopleCore 소개</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: #1a1a2e; }
+
+  .slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    margin: 0 auto 40px;
+  }
+
+  /* ── 공통 배지 ── */
+  .badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ════════════════════════════════
+     슬라이드 1 — 표지
+  ════════════════════════════════ */
+  .s1 {
+    background: linear-gradient(135deg, #0f2027 0%, #1a3a2a 50%, #0f2027 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .s1::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(29,158,117,0.18) 0%, transparent 70%);
+  }
+  .s1 .logo-wrap {
+    position: relative;
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, #1D9E75, #0F6E56);
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 28px;
+    box-shadow: 0 0 40px rgba(29,158,117,0.5);
+  }
+  .s1 .logo-wrap span { font-size: 36px; font-weight: 900; color: #fff; }
+  .s1 h1 { font-size: 64px; font-weight: 900; color: #fff; letter-spacing: -1px; position: relative; }
+  .s1 h1 em { color: #1D9E75; font-style: normal; }
+  .s1 p { font-size: 20px; color: rgba(255,255,255,0.6); margin-top: 16px; position: relative; }
+  .s1 .sub { margin-top: 48px; display: flex; gap: 32px; position: relative; }
+  .s1 .sub-item { text-align: center; }
+  .s1 .sub-item .num { font-size: 36px; font-weight: 900; color: #1D9E75; }
+  .s1 .sub-item .label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+  .s1 .divider { width: 1px; background: rgba(255,255,255,0.1); }
+
+  /* ════════════════════════════════
+     슬라이드 2 — 문제 제기
+  ════════════════════════════════ */
+  .s2 {
+    background: #0f1923;
+    padding: 60px 80px;
+  }
+  .s2 .tag { color: #1D9E75; font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; }
+  .s2 h2 { font-size: 42px; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 48px; }
+  .s2 h2 em { color: #1D9E75; font-style: normal; }
+  .s2 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .s2 .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+  .s2 .card .icon {
+    width: 48px; height: 48px;
+    background: rgba(239,68,68,0.15);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .s2 .card h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .s2 .card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  .s2 .card .point { font-size: 12px; color: #ef4444; font-weight: 600; margin-top: 12px; }
+
+  /* ════════════════════════════════
+     슬라이드 3 — 시장 현황
+  ════════════════════════════════ */
+  .s3 {
+    background: linear-gradient(135deg, #0f1923 0%, #0f2a1e 100%);
+    padding: 60px 80px;
+  }
+  .s3 .tag { color: #1D9E75; font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; }
+  .s3 h2 { font-size: 42px; font-weight: 900; color: #fff; margin-bottom: 48px; }
+  .s3 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
+  .s3 .stat {
+    background: rgba(29,158,117,0.1);
+    border: 1px solid rgba(29,158,117,0.25);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .s3 .stat .num { font-size: 44px; font-weight: 900; color: #1D9E75; }
+  .s3 .stat .unit { font-size: 16px; color: #1D9E75; margin-left: 4px; }
+  .s3 .stat .desc { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 8px; line-height: 1.6; }
+  .s3 .bottom {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    padding: 20px 28px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .s3 .bottom .arrow { font-size: 28px; }
+  .s3 .bottom p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+  .s3 .bottom strong { color: #1D9E75; }
+
+  /* ════════════════════════════════
+     슬라이드 4 — 제품 소개
+  ════════════════════════════════ */
+  .s4 {
+    background: #0f1923;
+    padding: 60px 80px;
+    display: flex; flex-direction: column;
+  }
+  .s4 .tag { color: #1D9E75; font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; }
+  .s4 h2 { font-size: 40px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .s4 .sub-desc { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 36px; }
+  .s4 .modules { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .s4 .module {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-align: center;
+  }
+  .s4 .module .icon { font-size: 28px; margin-bottom: 10px; }
+  .s4 .module h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .s4 .module p { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+  .s4 .highlight {
+    background: linear-gradient(135deg, rgba(29,158,117,0.15), rgba(29,158,117,0.05));
+    border: 1px solid rgba(29,158,117,0.3);
+    border-radius: 14px;
+    padding: 20px 28px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .s4 .highlight .icon { font-size: 32px; flex-shrink: 0; }
+  .s4 .highlight p { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+  .s4 .highlight strong { color: #1D9E75; }
+
+  /* ════════════════════════════════
+     슬라이드 5 — 서비스 목표
+  ════════════════════════════════ */
+  .s5 {
+    background: #0f1923;
+    padding: 60px 80px;
+  }
+  .s5 .tag { color: #1D9E75; font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; }
+  .s5 h2 { font-size: 42px; font-weight: 900; color: #fff; margin-bottom: 48px; }
+  .s5 .goals { display: flex; flex-direction: column; gap: 20px; }
+  .s5 .goal {
+    display: flex; align-items: flex-start; gap: 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 24px 28px;
+  }
+  .s5 .goal .num {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: linear-gradient(135deg, #1D9E75, #0F6E56);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; color: #fff;
+  }
+  .s5 .goal .content h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .s5 .goal .content p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  .s5 .goal .content strong { color: #1D9E75; }
+
+  /* ════════════════════════════════
+     슬라이드 6 — 기대 효과
+  ════════════════════════════════ */
+  .s6 {
+    background: linear-gradient(135deg, #0f1923 0%, #0f2a1e 100%);
+    padding: 60px 80px;
+  }
+  .s6 .tag { color: #1D9E75; font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; }
+  .s6 h2 { font-size: 42px; font-weight: 900; color: #fff; margin-bottom: 36px; }
+  .s6 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .s6 .section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 1px;
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .s6 .corp .section-title { color: #1D9E75; }
+  .s6 .social .section-title { color: #60a5fa; }
+  .s6 .items { display: flex; flex-direction: column; gap: 12px; }
+  .s6 .item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .s6 .item .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 6px;
+  }
+  .s6 .corp .dot { background: #1D9E75; }
+  .s6 .social .dot { background: #60a5fa; }
+  .s6 .item .text h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .s6 .item .text p { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- ══ 슬라이드 1: 표지 ══ -->
+<div class="slide s1">
+  <div class="logo-wrap"><span>P</span></div>
+  <h1><em>People</em>Core</h1>
+  <p>인사·근태·급여·성과·결재를 하나로 통합한 HR SaaS 플랫폼</p>
+  <div class="sub">
+    <div class="sub-item">
+      <div class="num">7+</div>
+      <div class="label">통합 모듈</div>
+    </div>
+    <div class="divider"></div>
+    <div class="sub-item">
+      <div class="num">AI</div>
+      <div class="label">Copilot 탑재</div>
+    </div>
+    <div class="divider"></div>
+    <div class="sub-item">
+      <div class="num">SaaS</div>
+      <div class="label">구독형 서비스</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 슬라이드 2: 문제 제기 ══ -->
+<div class="slide s2">
+  <div class="tag">PROBLEM</div>
+  <h2>왜 지금의 HR 시스템은<br /><em>불편할까요?</em></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">💸</div>
+      <h3>높은 도입 비용</h3>
+      <p>대형 ERP 솔루션은 도입 비용만 수억~수십억 원, 세팅에 수개월이 소요됩니다.</p>
+      <div class="point">→ 중소기업은 도입 자체가 불가능</div>
+    </div>
+    <div class="card">
+      <div class="icon">📋</div>
+      <h3>엑셀·수기 의존</h3>
+      <p>HR 시스템이 없는 기업은 여전히 엑셀과 수기로 인사 데이터를 관리합니다.</p>
+      <div class="point">→ 실수·누락·데이터 파편화 빈번</div>
+    </div>
+    <div class="card">
+      <div class="icon">🔀</div>
+      <h3>시스템 파편화</h3>
+      <p>근태·급여·성과·결재가 각각 다른 프로그램에 흩어져 있어 연동이 되지 않습니다.</p>
+      <div class="point">→ 데이터 불일치·오류 반복 발생</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 슬라이드 3: 시장 현황 ══ -->
+<div class="slide s3">
+  <div class="tag">MARKET</div>
+  <h2>HR SaaS 시장은 빠르게 성장 중입니다</h2>
+  <div class="stats">
+    <div class="stat">
+      <div><span class="num">1조</span><span class="unit">원+</span></div>
+      <div class="desc">국내 HR SaaS 시장 규모<br />(2024년 기준)</div>
+    </div>
+    <div class="stat">
+      <div><span class="num">15%</span><span class="unit">↑</span></div>
+      <div class="desc">연평균 시장 성장률<br />지속 확대 중</div>
+    </div>
+    <div class="stat">
+      <div><span class="num">60%</span><span class="unit">이상</span></div>
+      <div class="desc">국내 중소기업 중<br />HR 시스템 미도입 비율</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="arrow">📈</div>
+    <p>전 세계적으로 클라우드 기반 HR 플랫폼이 고비용 시스템을 빠르게 대체하고 있으며,<br />
+    <strong>AI 기반 HR 자동화</strong> 수요도 급증하고 있습니다.</p>
+  </div>
+</div>
+
+<!-- ══ 슬라이드 4: 제품 소개 ══ -->
+<div class="slide s4">
+  <div class="tag">PRODUCT</div>
+  <h2>PeopleCore란?</h2>
+  <div class="sub-desc">HR 업무 전체를 하나의 플랫폼에서 — 담당자가 직접 설정하고 즉시 사용</div>
+  <div class="modules">
+    <div class="module">
+      <div class="icon">👥</div>
+      <h4>사원 관리</h4>
+      <p>등록·인사발령·인력 현황 한눈에</p>
+    </div>
+    <div class="module">
+      <div class="icon">🕐</div>
+      <h4>근태 관리</h4>
+      <p>출퇴근·초과근무·휴가 자동 집계</p>
+    </div>
+    <div class="module">
+      <div class="icon">💰</div>
+      <h4>급여 관리</h4>
+      <p>급여 자동 산정·명세서 발송</p>
+    </div>
+    <div class="module">
+      <div class="icon">📊</div>
+      <h4>성과 평가</h4>
+      <p>KPI·다면평가·등급 자동 산정</p>
+    </div>
+    <div class="module">
+      <div class="icon">📝</div>
+      <h4>전자결재</h4>
+      <p>결재선 설정·문서 자동 채번</p>
+    </div>
+    <div class="module">
+      <div class="icon">💬</div>
+      <h4>협업</h4>
+      <p>채팅·캘린더·파일함 통합</p>
+    </div>
+    <div class="module">
+      <div class="icon">🔍</div>
+      <h4>통합 검색</h4>
+      <p>사원·문서·일정 실시간 검색</p>
+    </div>
+    <div class="module">
+      <div class="icon">🤖</div>
+      <h4>AI Copilot</h4>
+      <p>인사 데이터 기반 AI 어시스턴트</p>
+    </div>
+  </div>
+  <div class="highlight">
+    <div class="icon">⚙️</div>
+    <p>결재선·근무 정책·급여 항목·평가 등급 분포를 <strong>HR 담당자가 직접 설정</strong>할 수 있어,
+    외부 업체 의뢰 없이 <strong>우리 회사에 맞는 시스템</strong>을 즉시 운영할 수 있습니다.</p>
+  </div>
+</div>
+
+<!-- ══ 슬라이드 5: 서비스 목표 ══ -->
+<div class="slide s5">
+  <div class="tag">GOAL</div>
+  <h2>PeopleCore가 추구하는 목표</h2>
+  <div class="goals">
+    <div class="goal">
+      <div class="num">1</div>
+      <div class="content">
+        <h3>누구나 쉽게 도입</h3>
+        <p>구독형 서비스로 초기 투자 비용 없이 <strong>월정액으로 즉시 사용</strong>. 중소기업도 대기업 수준의 HR 시스템을 경험할 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="goal">
+      <div class="num">2</div>
+      <div class="content">
+        <h3>우리 회사에 맞게</h3>
+        <p>결재선·근무 정책·평가 방식을 <strong>담당자가 직접 설정</strong>. 회사마다 다른 업무 흐름을 그대로 반영합니다.</p>
+      </div>
+    </div>
+    <div class="goal">
+      <div class="num">3</div>
+      <div class="content">
+        <h3>데이터로 더 나은 인사 결정</h3>
+        <p>흩어진 HR 데이터를 하나로 모아 <strong>AI가 분석·제안</strong>. 직관이 아닌 데이터 기반으로 인사 판단을 내릴 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 슬라이드 6: 기대 효과 ══ -->
+<div class="slide s6">
+  <div class="tag">IMPACT</div>
+  <h2>도입 시 기대 효과</h2>
+  <div class="grid">
+    <div class="corp">
+      <div class="section-title">🏢 기업 입장</div>
+      <div class="items">
+        <div class="item">
+          <div class="dot"></div>
+          <div class="text">
+            <h4>업무 효율 향상</h4>
+            <p>결재·근태·급여 자동화로 HR 담당자의 반복 업무 감소</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="dot"></div>
+          <div class="text">
+            <h4>데이터 정확성 확보</h4>
+            <p>단일 플랫폼 통합으로 부서 간 데이터 불일치 제거</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="dot"></div>
+          <div class="text">
+            <h4>비용 절감</h4>
+            <p>구독형 월정액으로 고비용 ERP 대비 도입·운영 비용 대폭 절감</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social">
+      <div class="section-title">🌏 사회적 입장</div>
+      <div class="items">
+        <div class="item">
+          <div class="dot"></div>
+          <div class="text">
+            <h4>노동 환경 투명성 향상</h4>
+            <p>중소기업 HR 디지털 전환 가속으로 근로 데이터 투명하게 관리</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="dot"></div>
+          <div class="text">
+            <h4>근로기준법 준수율 향상</h4>
+            <p>연차·초과근무 자동 관리로 법적 기준 준수를 시스템이 보장</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="dot"></div>
+          <div class="text">
+            <h4>공정한 평가 문화 정착</h4>
+            <p>데이터 기반 성과 평가로 주관적 판단 최소화, 조직 신뢰 향상</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
