@@ -37,10 +37,10 @@ public class CalendarEventService {
     private final EventInstancesRepository eventInstancesRepository;
     private final EventAttendeesRepository eventAttendeesRepository;
     private final HrCacheService hrCacheService;
-
+    private final RecurrenceExpander recurrenceExpander;
 
     @Autowired
-    public CalendarEventService(MyCalendarsRepository myCalendarsRepository, EventsRepository eventsRepository, RepeatedRulesRepository repeatedRulesRepository, EventsNotificationsRepository eventsNotificationsRepository, InterestCalendarsRepository interestCalendarsRepository, AlarmEventPublisher alarmEventPublisher, HolidayRepository holidayRepository, EventInstancesRepository eventInstancesRepository, EventAttendeesRepository eventAttendeesRepository, HrCacheService hrCacheService) {
+    public CalendarEventService(MyCalendarsRepository myCalendarsRepository, EventsRepository eventsRepository, RepeatedRulesRepository repeatedRulesRepository, EventsNotificationsRepository eventsNotificationsRepository, InterestCalendarsRepository interestCalendarsRepository, AlarmEventPublisher alarmEventPublisher, HolidayRepository holidayRepository, EventInstancesRepository eventInstancesRepository, EventAttendeesRepository eventAttendeesRepository, HrCacheService hrCacheService, RecurrenceExpander recurrenceExpander) {
         this.myCalendarsRepository = myCalendarsRepository;
         this.eventsRepository = eventsRepository;
         this.repeatedRulesRepository = repeatedRulesRepository;
@@ -51,6 +51,7 @@ public class CalendarEventService {
         this.eventInstancesRepository = eventInstancesRepository;
         this.eventAttendeesRepository = eventAttendeesRepository;
         this.hrCacheService = hrCacheService;
+        this.recurrenceExpander = recurrenceExpander;
     }
 
     //    일정 등록
@@ -161,7 +162,7 @@ public class CalendarEventService {
         return EventResDto.fromEntity(event, attendees, loadEmployeeMap(event, attendees));
     }
 
-    //    캘린더 뷰 일정조회 (월,주,일)
+//    캘린더 뷰 일정조회 (월,주,일)
 //    내캘린더 + 관심캘린더 + 전사일정통합
     public CalendarEventRangeResDto getEventsForView(UUID companyId, Long empId, LocalDateTime start, LocalDateTime end) {
 
@@ -224,6 +225,7 @@ public class CalendarEventService {
         for (EventAttendees a : allAttendees) {
             if (a.getInvitedEmpId() != null) allEmpIds.add(a.getInvitedEmpId());
         }
+//        HR service에서 한번만 호출
         Map<Long, EmployeeSimpleResDto> empMap = Map.of();
         if (!allEmpIds.isEmpty()) {
             try {
@@ -236,10 +238,14 @@ public class CalendarEventService {
 
         List<EventResDto> result = new ArrayList<>();
         for (Events e : merged.values()) {
-            result.add(EventResDto.fromEntity(e, attendeesByEventId.get(e.getEventsId()), empMap));
+            List<RecurrenceExpander.Occurrence> occurrences = recurrenceExpander.expand(e, start, end);
+            List<EventAttendees> attendees = attendeesByEventId.get(e.getEventsId());
+            for (RecurrenceExpander.Occurrence occ : occurrences) {
+                result.add(EventResDto.fromEntity(e,attendees, empMap,occ.startAt, occ.endAt, occ.startAt));
+            }
         }
 
-        // 6) 공휴일 머지 (NATIONAL + 회사의 COMPANY)
+        // 8. 공휴일 머지 (NATIONAL + 회사의 COMPANY)
         LocalDate startDate = start.toLocalDate();
         LocalDate endDate = end.toLocalDate();
         List<Holidays> rawHolidays =
