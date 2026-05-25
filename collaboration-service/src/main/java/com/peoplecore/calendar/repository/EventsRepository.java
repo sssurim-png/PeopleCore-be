@@ -27,10 +27,12 @@ public interface EventsRepository extends JpaRepository<Events, Long>, EventsCus
     JOIN EventAttendees a ON a.eventInstances = ei
     WHERE a.invitedEmpId = :empId
       AND e.companyId = :companyId
-      AND e.startAt < :end
-      AND e.endAt   > :start
       AND (e.deletedAt IS NULL)
-""")
+      AND (
+              (e.startAt < :end AND e.endAt > :start)
+              OR (e.repeatedRules IS NOT NULL AND e.startAt < :end)
+          )
+    """)
     List<Events> findEventsAttendedByEmp(
             @Param("empId") Long empId,
             @Param("companyId") UUID companyId,
