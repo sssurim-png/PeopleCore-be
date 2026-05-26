@@ -2,7 +2,7 @@
 
 <p align="center">
   <!-- TODO: 메인 이미지 교체 (예: picture/main.png) -->
-  <img src="picture/peoplecore-banner.png" alt="PeopleCore 메인 이미지" width="800" />
+  <img src="picture/peoplecore-banner.png" alt="PeopleCore 메인 이미지" width="400" />
 </p>
 
 **PeopleCore**는 인사·근태·급여·성과·전자결재·협업·AI Copilot을 단일 플랫폼으로 통합한 **워크플로우 기반 엔터프라이즈 SaaS**입니다.
@@ -127,11 +127,11 @@
 
 **성과평가 산정**
 
-<img src="https://github.com/user-attachments/assets/051007f9-df32-4b6c-babe-9a4961e36c89" alt="성과평가 산정" width="800" />
+<video src="https://github.com/user-attachments/assets/b64e8d49-1cf4-4fcb-b4d7-0eead3e217a3" autoplay muted loop playsinline width="800"></video>
 
 **평가 결과 및 이력**
 
-<img src="https://github.com/user-attachments/assets/f678ee0b-554f-4721-a2e9-353cd635d297" alt="평가결과 및 이력" width="800" />
+<video src="https://github.com/user-attachments/assets/ae70a95d-503b-4fbe-8fff-629dcfd9e39f" autoplay muted loop playsinline width="800"></video>
 
 </details>
 
@@ -184,7 +184,7 @@
 <details>
 <summary><font size="5"><strong>로그인</strong></font></summary>
 <p align="center">
-  <img src="picture/gifs/login.gif" width="800" />
+  <img src="picture/gifs/login.gif" width="400" />
 </p>
 
 </details>
@@ -192,7 +192,7 @@
 <details>
 <summary><font size="5"><strong>안면인식 로그인</strong></font></summary>
 <p align="center">
-  <img src="picture/gifs/face_login.gif" width="800" />
+  <img src="picture/gifs/face_login.gif" width="400" />
 </p>
 
 </details>
@@ -202,19 +202,19 @@
 
 **인력 현황**
 
-<img src="https://github.com/user-attachments/assets/dee784c1-64af-41d6-8ef8-09b5f282a3ca" alt="인력 현황" width="800" />
+<video src="https://github.com/user-attachments/assets/53c6b20f-8f03-4f1c-afb6-70109459d4b5" autoplay muted loop playsinline width="800"></video>
 
 **인사발령 및 이력확인**
 
-<img src="https://github.com/user-attachments/assets/e255b10c-301f-4fe3-b916-d718f5449b7b" alt="인사발령" width="800" />
+<video src="https://github.com/user-attachments/assets/357eb242-535d-49f8-8f86-7a563eaf1202" autoplay muted loop playsinline width="800"></video>
 
 **계약서 등록**
 
-<img src="https://github.com/user-attachments/assets/65cc35f6-044c-4588-af36-870ee81b4447" alt="계약서 등록" width="800" />
+<video src="https://github.com/user-attachments/assets/a64c6f82-f2d2-479d-86a9-5d0d00f95cfd" autoplay muted loop playsinline width="800"></video>
 
 **퇴직처리**
 
-<img src="https://github.com/user-attachments/assets/a2a4063d-78cf-4912-990e-34f757cf203c" alt="퇴직처리" width="800" />
+<video src="https://github.com/user-attachments/assets/199e4ffc-adc6-4026-b83d-ff7de17ddab9" autoplay muted loop playsinline width="800"></video>
 
 </details>
 
@@ -333,22 +333,22 @@
 
 - 파일 및 폴더 생성 / 삭제
 <p align="center">
-  <img src="picture/gifs/file_create.gif" width="800" />
+  <img src="picture/gifs/file_create.gif" width="400" />
 </p>
 
 - 파일 및 폴더 즐겨찾기
 <p align="center">
-  <img src="picture/gifs/file_star.gif" width="800" />
+  <img src="picture/gifs/file_star.gif" width="400" />
 </p>
 
 - 공용 파일함 생성 권한 설정
 <p align="center">
-  <img src="picture/gifs/file_permission.gif" width="800" />
+  <img src="picture/gifs/file_permission.gif" width="400" />
 </p>
 
 - 공용 파일함 멤버 초대 및 멤버별 권한 설정
 <p align="center">
-  <img src="picture/gifs/file_member_permission.gif" width="800" />
+  <img src="picture/gifs/file_member_permission.gif" width="400" />
 </p>
 
 </details>
@@ -359,7 +359,7 @@
 <!-- 통합검색 서비스 화면 자료를 여기에 추가하세요. -->
 
 <p align="center">
-  <img src="picture/gifs/search.gif" width="800" />
+  <img src="picture/gifs/search.gif" width="400" />
 </p>
 </details>
 
@@ -368,32 +368,32 @@
 
 - 캘린더에 일정 생성하기
 <p align="center">
-  <img src="picture/gifs/ai_calendar.gif" width="800" />
+  <img src="picture/gifs/ai_calendar.gif" width="400" />
 </p>
 
 - 휴가신청 젅자결재 생성하기
 <p align="center">
-  <img src="picture/gifs/search.gif" width="800" />
+  <img src="picture/gifs/search.gif" width="400" />
 </p>
 
 - 오늘 할 일(다이제스트) 조회
 <p align="center">
-  <img src="picture/gifs/ai_digest.gif" width="800" />
+  <img src="picture/gifs/ai_digest.gif" width="400" />
 </p>
 
 - 자신의 민감 정보 조회 
 <p align="center">
-  <img src="picture/gifs/ai_my_info.gif" width="800" />
+  <img src="picture/gifs/ai_my_info.gif" width="400" />
 </p>
 
 - 타인의 민감 정보 조회
 <p align="center">
-  <img src="picture/gifs/ai_other_info.gif" width="800" />
+  <img src="picture/gifs/ai_other_info.gif" width="400" />
 </p>
 
 - 이전 대화 이력 보존
 <p align="center">
-  <img src="picture/gifs/ai_log.gif" width="800" />
+  <img src="picture/gifs/ai_log.gif" width="400" />
 </p>
 
 </details>
@@ -403,17 +403,17 @@
 
 - 부서 생성 및 순서 편집
 <p align="center">
-  <img src="picture/gifs/org_create.gif" width="800" />
+  <img src="picture/gifs/org_create.gif" width="400" />
 </p>
 
 - 직급 생성 및 순서 편집
 <p align="center">
-  <img src="picture/gifs/grade.gif" width="800" />
+  <img src="picture/gifs/grade.gif" width="400" />
 </p>
 
 - 직책 생성 및 순서 편집
 <p align="center">
-  <img src="picture/gifs/title.gif" width="800" />
+  <img src="picture/gifs/title.gif" width="400" />
 </p>
 </details>
 
@@ -422,42 +422,42 @@
 
 - 1대1 채팅방 생성
 <p align="center">
-  <img src="picture/gifs/chat_room_create.gif" width="800" />
+  <img src="picture/gifs/chat_room_create.gif" width="400" />
 </p>
 
 - 그룹 채팅방 생성
 <p align="center">
-  <img src="picture/gifs/chat_room_create.gif" width="800" />
+  <img src="picture/gifs/chat_room_create.gif" width="400" />
 </p>
 
 - 조직도를 통한 채팅 시작
 <p align="center">
-  <img src="picture/gifs/org_chart_chat.gif" width="800" />
+  <img src="picture/gifs/org_chart_chat.gif" width="400" />
 </p>
 
 - 메시지 송/수신
 <p align="center">
-  <img src="picture/gifs/messaging.gif" width="800" />
+  <img src="picture/gifs/messaging.gif" width="400" />
 </p>
 
 - 메시지 삭제
 <p align="center">
-  <img src="picture/gifs/message_delete.gif" width="800" />
+  <img src="picture/gifs/message_delete.gif" width="400" />
 </p>
 
 - 파일 전송
 <p align="center">
-  <img src="picture/gifs/file_send2.gif" width="800" />
+  <img src="picture/gifs/file_send2.gif" width="400" />
 </p>
 
 - 채팅방, 메시지 검색
 <p align="center">
-  <img src="picture/gifs/chat_search.gif" width="800" />
+  <img src="picture/gifs/chat_search.gif" width="400" />
 </p>
 
 - 채팅방 나가기
 <p align="center">
-  <img src="picture/gifs/chat_del.gif" width="800" />
+  <img src="picture/gifs/chat_del.gif" width="400" />
 </p>
 </details>
 
@@ -677,7 +677,7 @@
 <summary><font size="5"><strong>성과</strong></font></summary>
 
 **평가자 맵핑**
-<img src="https://github.com/user-attachments/assets/2b8652ff-3208-4253-b2a9-ea6ef0d8bad4" alt="평가자 맵핑" width="800" />
+<video src="https://github.com/user-attachments/assets/6aacfe48-168f-40ec-8c40-2b4e37fb0481" autoplay muted loop playsinline width="800"></video>
 
 **성과평가 규칙 설정**
 ![성과평가 규칙 설정](picture/gifs/성과평가%20규칙%20설정.gif)
@@ -689,7 +689,7 @@
 ![평가 시즌 생성](picture/gifs/평가생성.gif)
 
 **단계 개폐 및 기간 연장**
-<img src="https://github.com/user-attachments/assets/465bf5a7-f78e-4190-ad75-1ea197f3101e" alt="단계 계폐 및 기간연장" width="800" />
+<video src="https://github.com/user-attachments/assets/2bd9a895-47ec-4bc9-a8b6-33a91ed198ae" autoplay muted loop playsinline width="800"></video>
 
 **피평가자 목표 작성**
 ![피평가자 목표 작성](picture/gifs/피평가자목표작성,%20평가자검토.gif)
@@ -698,7 +698,7 @@
 ![평가자 검토](picture/gifs/피평가자목표작성,%20평가자검토.gif)
 
 **상위자 평가**
-<img src="https://github.com/user-attachments/assets/8fcb3a62-1535-4ce0-b9fa-8165d187d85c" alt="상위자평가" width="800" />
+<video src="https://github.com/user-attachments/assets/2df4115b-4e4a-4084-a684-d2463160fe90" autoplay muted loop playsinline width="800"></video>
 
 </details>
 
@@ -756,6 +756,25 @@
 |------------------------------------------------|---------------------------------------|
 | [MySQL 월별 파티셔닝](docs_md/mysql-partitioning.md) | 수천만 행 근태 테이블 월별 파티셔닝 + 더티체킹 함정 해결     |
 | [출퇴근 IP 정책](docs_md/commute-ip-policy.md)      | 멀티 홉 환경에서 클라이언트 공인 IP 정확 추출 + CIDR 매칭 |
+
+</details>
+
+<details>
+<summary><font size="5"><strong>사원 관리</strong></font></summary>
+
+| 문서                                                              | 핵심 내용                                                                                          |
+|-----------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [회사별 사원 폼 - 기본/커스텀 두 층위](docs_md/employee-dynamic-form.md)      | `Employee.customFields` JSON + `FormFieldSetup` · 기본 항목(on/off) + 커스텀(JSON) 분리 · 폼 정의·값 분리 |
+
+</details>
+
+<details>
+<summary><font size="5"><strong>성과 평가</strong></font></summary>
+
+| 문서                                                                  | 핵심 내용                                                                                  |
+|---------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| [시즌 무결성 아키텍처](docs_md/evaluation-season-integrity.md)               | `Season.formSnapshot` 박제 · `EvalGrade.@Version` 낙관적 락 · 평가자 퇴직 `AFTER_COMMIT` 이벤트 보정 |
+| [자동 산식 - Z-score + 강제분포](docs_md/evaluation-grade-calculation.md)  | 점수 집계 → 가중치 → Z-score 팀장 편향 보정 → 강제분포 4단 알고리즘 · BigDecimal 결정성                       |
 
 </details>
 
