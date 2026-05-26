@@ -79,17 +79,15 @@ DELETE FROM department WHERE company_id = @cid AND dept_code = 'AUDIT';
 
 SET FOREIGN_KEY_CHECKS = 1;
 
--- ▼ 감사실(AUDIT) — CLEANUP 이후 생성 (중복 방지) ▼
---   소규모 팀 시연용, 3명만 배치 → minTeamSize=5 미만이라 BE 가 z-score 보정 스킵
---   기존 부서에서 emp090/091/092 (마케팅팀 팀원) 을 이동시켜 만든다
-INSERT INTO department (company_id, dept_name, dept_code, parent_dept_id, sort_order, is_use, created_at)
-  VALUES (@cid, '감사실', 'AUDIT', NULL, 0, 'Y', NOW());
-SET @d_audit := (SELECT dept_id FROM department WHERE company_id=@cid AND dept_code='AUDIT');
-
+-- ▼ 과거 시드에서 AUDIT 로 옮겨졌던 emp090/091/092 를 원래 MKT 로 복원 ▼
+--   AUDIT 부서가 CLEANUP 에서 삭제되면 이 사원들의 dept_id 가 orphan 이 되므로 명시적 복원 필요
 UPDATE employee
-   SET dept_id = @d_audit
+   SET dept_id = @d_mkt
  WHERE company_id = @cid
    AND emp_num IN ('EMP-2025-090', 'EMP-2025-091', 'EMP-2025-092');
+
+-- ▼ AUDIT(감사실) 부서는 시연 더미에서 제외 — 보정 화면 undersizedTeam 알람 트리거 안 함 ▼
+SET @d_audit := NULL;
 
 -- ▼ admin(emp001) 부서를 HR 로 이동 — admin 이 HR 부서장으로 평가 활동 ▼
 --   원본 02_hr_employees.sql 은 admin 을 EXEC 에 박지만, 04 시드에서는 HR 로 옮김
@@ -221,15 +219,7 @@ INSERT INTO kpi_template (department_id, grade_id, category_option_id, unit_opti
   (@d_mkt, NULL, @cat_work, @unit_pct,  '캠페인 일정 준수율',      '캠페인 런칭 일정 준수',                 95.00,   'MAINTAIN', true),
   (@d_mkt, NULL, @cat_qual, @unit_cnt,  '고객 컴플레인 건수',      '월간 고객 컴플레인',                    3.00,    'DOWN',     true);
 
--- ── 감사실 (AUDIT) — 소규모 팀, emp090(G4) / emp091(G3) / emp092(G3) 매칭용 ──
-INSERT INTO kpi_template (department_id, grade_id, category_option_id, unit_option_id, name, description, baseline, direction, is_active) VALUES
-  (@d_audit, @g4,  @cat_qual, @unit_cnt,  '감사 보고서 발행 건수',   '분기 내부감사 보고서',           4.00,   'UP',       true),
-  (@d_audit, @g4,  @cat_qual, @unit_pct,  '감사 일정 준수율',        '감사 계획 일정 준수',            95.00,  'MAINTAIN', true),
-  (@d_audit, @g3,  @cat_qual, @unit_cnt,  '내부통제 점검 건수',      '월간 통제활동 점검',             8.00,   'UP',       true),
-  (@d_audit, @g3,  @cat_eff,  @unit_hour, '감사 응답 시간',          '감사 의뢰 응답까지',             24.00,  'DOWN',     true),
-  (@d_audit, @g3,  @cat_qual, @unit_cnt,  '리스크 식별 건수',        '신규 리스크 등록',               3.00,   'UP',       true),
-  (@d_audit, NULL, @cat_qual, @unit_pct,  '컴플라이언스 준수율',     '규정 준수율',                    100.00, 'MAINTAIN', true),
-  (@d_audit, NULL, @cat_qual, @unit_cnt,  '시정 권고 이행 건수',     '권고사항 이행',                  5.00,   'UP',       true);
+-- ── 감사실(AUDIT) KPI 템플릿 — 시연 더미에서 제외 (AUDIT 부서 미운영) ──
 
 -- =====================================================================
 -- STEP 3. emp_evaluator_global (부서별 최고 직급 사원이 부서원의 평가자)
@@ -510,9 +500,9 @@ SELECT
   g.goal_id,
   CASE WHEN g.goal_type = 'KPI' THEN
     CASE g.kpi_direction
-      WHEN 'UP'       THEN ROUND(g.target_value * (0.70 + ((g.emp_id + g.kpi_id) % 60) / 100.0), 2)
-      WHEN 'DOWN'     THEN ROUND(GREATEST(g.target_value * (1.30 - ((g.emp_id + g.kpi_id) % 60) / 100.0), 0.01), 2)
-      WHEN 'MAINTAIN' THEN ROUND(g.target_value * (0.95 + ((g.emp_id + g.kpi_id) % 10) / 100.0), 2)
+      WHEN 'UP'       THEN ROUND(g.target_value * (0.75 + ((g.emp_id * 7919 + g.kpi_id * 131) % 240) / 1000.0), 2)
+      WHEN 'DOWN'     THEN ROUND(GREATEST(g.target_value * (1.10 + ((g.emp_id * 7919 + g.kpi_id * 131) % 240) / 1000.0), 0.01), 2)
+      WHEN 'MAINTAIN' THEN ROUND(g.target_value * (0.95 + ((g.emp_id * 7919 + g.kpi_id * 131) % 100) / 1000.0), 2)
     END
   ELSE NULL END AS actual_value,
   CASE WHEN g.goal_type = 'OKR' THEN
@@ -551,7 +541,7 @@ SELECT
     ELSE de.evaluator_emp_id
   END AS evaluator_id,
   s.season_id,
-  ELT(1 + ((e.emp_id + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D'),
+  ELT(1 + ((CASE WHEN e.dept_id = @d_audit THEN e.emp_id ELSE e.dept_id END + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D'),
   '시즌 종합 평가 의견 — 목표 달성 수준 및 협업·태도 종합',
   '다음 시즌 성장 포인트 — 강점 유지, 약점 보완 방향 제시',
   DATE_ADD(s.end_date, INTERVAL -5 DAY)
@@ -626,39 +616,38 @@ SELECT
   60 + ((e.emp_id * 7 + s.season_id * 3) % 40),
   60 + ((e.emp_id * 7 + s.season_id * 3) % 40),
   -- manager_score: 등급 매핑
-  CASE ELT(1 + ((e.emp_id + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
+  CASE ELT(1 + ((CASE WHEN e.dept_id = @d_audit THEN e.emp_id ELSE e.dept_id END + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
     WHEN 'S' THEN 95 WHEN 'A' THEN 85 WHEN 'B' THEN 75 WHEN 'C' THEN 65 WHEN 'D' THEN 50
   END,
-  -- manager_score_adjusted: 일반 케이스는 ±3 변동(Z-score 모방), 보정 스킵 케이스는 원점수 유지
-  --   ▷ 감사실(@d_audit): 소규모 팀 (3명 < minTeamSize=5) → 보정 스킵
-  --   ▷ emp_id % 11 = 0: 팀 평균과 일치 가정 (z=0 시연용) → 보정 결과 0
-  CASE ELT(1 + ((e.emp_id + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
+  -- manager_score_adjusted: 평가자가 6+ 팀 내 사원에게 동일 등급 부여 가정 → team_std_dev=0
+  --   → BE applyBiasAdjustment 가 Z-score 보정 스킵 → manager_score 그대로 (감사실은 minTeamSize 미만이라 어차피 스킵)
+  CASE ELT(1 + ((CASE WHEN e.dept_id = @d_audit THEN e.emp_id ELSE e.dept_id END + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
     WHEN 'S' THEN 95 WHEN 'A' THEN 85 WHEN 'B' THEN 75 WHEN 'C' THEN 65 WHEN 'D' THEN 50
-  END + (CASE WHEN e.dept_id = @d_audit OR e.emp_id % 11 = 0 THEN 0 ELSE ((e.emp_id * 11 + s.season_id) % 7) - 3 END),
+  END,
   -- total_score: self*0.3 + mgr_adj*0.7
   ROUND(
     (60 + ((e.emp_id * 7 + s.season_id * 3) % 40)) * 0.3 +
-    (CASE ELT(1 + ((e.emp_id + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
+    (CASE ELT(1 + ((CASE WHEN e.dept_id = @d_audit THEN e.emp_id ELSE e.dept_id END + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
        WHEN 'S' THEN 95 WHEN 'A' THEN 85 WHEN 'B' THEN 75 WHEN 'C' THEN 65 WHEN 'D' THEN 50
-     END + (CASE WHEN e.dept_id = @d_audit OR e.emp_id % 11 = 0 THEN 0 ELSE ((e.emp_id * 11 + s.season_id) % 7) - 3 END)) * 0.7
+     END) * 0.7
   , 2),
   -- weighted_score: total_score 와 동일
   ROUND(
     (60 + ((e.emp_id * 7 + s.season_id * 3) % 40)) * 0.3 +
-    (CASE ELT(1 + ((e.emp_id + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
+    (CASE ELT(1 + ((CASE WHEN e.dept_id = @d_audit THEN e.emp_id ELSE e.dept_id END + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
        WHEN 'S' THEN 95 WHEN 'A' THEN 85 WHEN 'B' THEN 75 WHEN 'C' THEN 65 WHEN 'D' THEN 50
-     END + (CASE WHEN e.dept_id = @d_audit OR e.emp_id % 11 = 0 THEN 0 ELSE ((e.emp_id * 11 + s.season_id) % 7) - 3 END)) * 0.7
+     END) * 0.7
   , 2),
-  -- bias_adjusted_score: total + ±2
+  -- bias_adjusted_score: total_score 와 동일 (Z-score 가 manager_score_adjusted 에 이미 반영됨)
   ROUND(
     (60 + ((e.emp_id * 7 + s.season_id * 3) % 40)) * 0.3 +
-    (CASE ELT(1 + ((e.emp_id + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
+    (CASE ELT(1 + ((CASE WHEN e.dept_id = @d_audit THEN e.emp_id ELSE e.dept_id END + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D')
        WHEN 'S' THEN 95 WHEN 'A' THEN 85 WHEN 'B' THEN 75 WHEN 'C' THEN 65 WHEN 'D' THEN 50
-     END + (CASE WHEN e.dept_id = @d_audit OR e.emp_id % 11 = 0 THEN 0 ELSE ((e.emp_id * 11 + s.season_id) % 7) - 3 END)) * 0.7
-    + (((e.emp_id * 13) % 5) - 2)
+     END) * 0.7
   , 2),
-  ELT(1 + ((e.emp_id + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D'),
-  ELT(1 + ((e.emp_id + s.season_id) % 10), 'S','A','A','B','B','B','B','C','C','D'),
+  -- auto_grade / final_grade: 강제배분 단계에서 bias_adjusted_score 줄세워서 채움
+  NULL,
+  NULL,
   false,
   s.finalized_at,
   e.dept_id,
@@ -725,13 +714,49 @@ SET
   eg.raw_self_score      = c.computed_self_score,
   eg.total_score         = ROUND(c.computed_self_score * 0.3 + eg.manager_score_adjusted * 0.7, 2),
   eg.weighted_score      = ROUND(c.computed_self_score * 0.3 + eg.manager_score_adjusted * 0.7, 2),
-  -- bias_adjusted_score: 보정 스킵 케이스(감사실/z=0 demo)는 ±2 노이즈 없이 total 그대로
-  eg.bias_adjusted_score = ROUND(c.computed_self_score * 0.3 + eg.manager_score_adjusted * 0.7
-                                 + CASE
-                                     WHEN eg.dept_id_snapshot = @d_audit OR eg.emp_id % 11 = 0 THEN 0
-                                     ELSE ((eg.emp_id * 13) % 5) - 2
-                                   END, 2)
+  -- bias_adjusted_score: 6+ 팀 동일등급으로 std=0 → Z-score 보정 스킵 → total_score 와 동일
+  eg.bias_adjusted_score = ROUND(c.computed_self_score * 0.3 + eg.manager_score_adjusted * 0.7, 2)
 WHERE eg.season_id IN (@s_2024h1, @s_2024h2, @s_2025h1, @s_2025h2);
+
+-- 8-1d. team_std_dev 세팅 — 6+ 팀은 평가자가 사원 전원에게 동일 등급 부여한 결과로 std=0
+--   → BE getCalibrationReview 가 zeroStdDevTeams 로 감지 (보정 안내 카드 표시)
+--   AUDIT(3명, minTeamSize=5 미달) 은 그대로 NULL — 어차피 BE 가 undersizedTeams 로 분류
+UPDATE eval_grade eg
+JOIN season s ON s.season_id = eg.season_id
+SET eg.team_std_dev = 0
+WHERE s.company_id = @cid
+  AND s.status = 'CLOSED'
+  AND eg.dept_id_snapshot != @d_audit;
+
+-- 8-1e. 자동 등급 강제배분 — bias_adjusted_score desc 줄세워 비율(S 10% / A 20% / B 40% / C 20% / D 10%) 배정
+--   BE applyDistribution 동일 동작:
+--     1) bias_adjusted_score DESC, weighted_score DESC (동점 tie-break) 로 시즌별 ROW_NUMBER
+--     2) Math.round(N × ratio / 100) 만큼 위에서부터 잘라 등급 배정 (누적 cutoff 기준)
+--     3) 마지막 등급(D) 은 잔여 인원 — 반올림 오차 흡수
+UPDATE eval_grade eg
+JOIN (
+  SELECT
+    grade_id,
+    CASE
+      WHEN rk <= ROUND(total_n * 0.10)                                                                                                    THEN 'S'
+      WHEN rk <= ROUND(total_n * 0.10) + ROUND(total_n * 0.20)                                                                            THEN 'A'
+      WHEN rk <= ROUND(total_n * 0.10) + ROUND(total_n * 0.20) + ROUND(total_n * 0.40)                                                    THEN 'B'
+      WHEN rk <= ROUND(total_n * 0.10) + ROUND(total_n * 0.20) + ROUND(total_n * 0.40) + ROUND(total_n * 0.20)                            THEN 'C'
+      ELSE 'D'
+    END AS new_grade,
+    rk
+  FROM (
+    SELECT
+      grade_id,
+      ROW_NUMBER() OVER (PARTITION BY season_id ORDER BY bias_adjusted_score DESC, weighted_score DESC, emp_id ASC) AS rk,
+      COUNT(*)     OVER (PARTITION BY season_id) AS total_n
+    FROM eval_grade
+    WHERE season_id IN (@s_2024h1, @s_2024h2, @s_2025h1, @s_2025h2)
+      AND bias_adjusted_score IS NOT NULL
+  ) ranked
+) d ON d.grade_id = eg.grade_id
+SET eg.auto_grade  = d.new_grade,
+    eg.final_grade = d.new_grade;
 
 -- 8-2. OPEN 시즌 (snapshot only — 자동산정 단계에서 점수/등급 채워짐)
 INSERT INTO eval_grade
@@ -862,17 +887,7 @@ GROUP BY eg.final_grade
 ORDER BY FIELD(eg.final_grade, 'S','A','B','C','D');
 
 
--- =====================================================================
--- [화면용] 개발팀 전원 동점 — 보정 참고사항 zeroStdDevTeams 시연
--- ---------------------------------------------------------------------
--- 개발팀 박제된 EvalGrade 의 manager_score 를 동일값으로 고정.
--- team_std_dev=0 으로 박아 백엔드 getCalibrationReview 에서 zeroStdDevTeams 에 잡히게.
--- =====================================================================
-UPDATE eval_grade eg
-SET manager_score          = 80,
-    manager_score_adjusted = 80,
-    team_std_dev           = 0
-WHERE dept_id_snapshot = (SELECT dept_id FROM department WHERE company_id=@cid AND dept_code='DEV');
-
+-- DEV팀 zeroStdDev override 제거 — 8-1d 에서 모든 6+ 팀에 team_std_dev=0 일괄 세팅하고,
+-- 8-1 에서 dept_id 기반 등급 슬롯으로 팀 내 manager_score 가 자연스럽게 동일하게 들어가므로 불필요해짐.
 
 COMMIT;
