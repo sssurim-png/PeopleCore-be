@@ -127,11 +127,11 @@
 
 **성과평가 산정**
 
-![성과평가 산정](picture/gifs/성과평가%20산정.gif)
+<img width="400" height="215" alt="성과평가 산정" src="https://github.com/user-attachments/assets/051007f9-df32-4b6c-babe-9a4961e36c89" />
 
 **평가 결과 및 이력**
 
-![평가 결과 및 이력](picture/gifs/평가결과%20및%20이력.gif)
+<img width="400" height="206" alt="평가결과 및 이력" src="https://github.com/user-attachments/assets/f678ee0b-554f-4721-a2e9-353cd635d297" />
 
 </details>
 
@@ -202,19 +202,19 @@
 
 **인력 현황**
 
-![인력 현황](picture/gifs/인력%20현황.gif)
+<img width="400" height="182" alt="인력 현황" src="https://github.com/user-attachments/assets/dee784c1-64af-41d6-8ef8-09b5f282a3ca" />
 
 **인사발령 및 이력확인**
 
-![인사발령 및 이력확인](picture/gifs/인사발령.gif)
+<img width="400" height="183" alt="인사발령" src="https://github.com/user-attachments/assets/e255b10c-301f-4fe3-b916-d718f5449b7b" />
 
 **계약서 등록**
 
-![계약서 등록](picture/gifs/계약서%20등록.gif)
+<img width="400" height="206" alt="계약서 등록" src="https://github.com/user-attachments/assets/65cc35f6-044c-4588-af36-870ee81b4447" />
 
 **퇴직처리**
 
-![퇴직처리](picture/gifs/퇴직처리.gif)
+<img width="400" height="206" alt="퇴직처리" src="https://github.com/user-attachments/assets/a2a4063d-78cf-4912-990e-34f757cf203c" />
 
 </details>
 
@@ -677,7 +677,7 @@
 <summary><font size="5"><strong>성과</strong></font></summary>
 
 **평가자 맵핑**
-![평가자 맵핑](picture/gifs/평가자%20맵핑.gif)
+<img width="400" height="181" alt="평가자 맵핑" src="https://github.com/user-attachments/assets/2b8652ff-3208-4253-b2a9-ea6ef0d8bad4" />
 
 **성과평가 규칙 설정**
 ![성과평가 규칙 설정](picture/gifs/성과평가%20규칙%20설정.gif)
@@ -689,7 +689,7 @@
 ![평가 시즌 생성](picture/gifs/평가생성.gif)
 
 **단계 개폐 및 기간 연장**
-![단계 개폐 및 기간 연장](picture/gifs/단계%20계폐%20및%20기간연장.gif)
+<img width="400" height="182" alt="단계 계폐 및 기간연장" src="https://github.com/user-attachments/assets/465bf5a7-f78e-4190-ad75-1ea197f3101e" />
 
 **피평가자 목표 작성**
 ![피평가자 목표 작성](picture/gifs/피평가자목표작성,%20평가자검토.gif)
@@ -698,7 +698,7 @@
 ![평가자 검토](picture/gifs/피평가자목표작성,%20평가자검토.gif)
 
 **상위자 평가**
-![상위자 평가](picture/gifs/상위자평가.gif)
+<img width="400" height="183" alt="상위자평가" src="https://github.com/user-attachments/assets/8fcb3a62-1535-4ce0-b9fa-8165d187d85c" />
 
 </details>
 
