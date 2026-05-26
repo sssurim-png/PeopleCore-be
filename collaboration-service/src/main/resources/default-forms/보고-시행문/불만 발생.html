@@ -1,0 +1,94 @@
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 2px solid #d1d5db; font-size: 11pt;">
+<colgroup>
+<col width="120"/><col width="280"/><col width="120"/><col width="280"/>
+</colgroup>
+<tbody>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">발생일자</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="occurDate" style="border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">보고서 번호</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="reportNumber" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 2px solid #d1d5db; font-size: 11pt;">
+<colgroup>
+<col width="80"/><col width="120"/><col width="280"/><col width="120"/><col width="200"/>
+</colgroup>
+<tbody>
+<tr>
+<td rowspan="3" style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">제품</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">제품명</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="productName" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">수량</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="number" name="productQty" min="0" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;text-align:right;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">포장일자</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="packDate" style="border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">유통기한</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="expiryDate" style="border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">구입일자</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="purchaseDate" style="border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">보관상태</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="storageState" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td rowspan="4" style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">발생</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">발생장소</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="occurPlace" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">고객명</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="customerName" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">주소</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="customerAddress" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">연락처</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="customerPhone" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td rowspan="2" style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">접수</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">소속</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="receiverDept" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">접수자</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="receiverName" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 2px solid #d1d5db; font-size: 11pt;">
+<colgroup>
+<col width="120"/><col width="680"/>
+</colgroup>
+<tbody>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">불만코드</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="complaintCode" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">요구사항</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><textarea name="customerRequest" rows="3" style="width:100%;border:0;outline:none;resize:vertical;font-family:inherit;font-size:11pt;background:transparent;"></textarea></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">환불금액</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="number" name="refundAmount" min="0" style="width:200px;border:0;border-bottom:1px solid #d1d5db;outline:none;font-family:inherit;font-size:11pt;background:transparent;text-align:right;"/> 원</td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">조치사항</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><textarea name="actionTaken" rows="4" style="width:100%;border:0;outline:none;resize:vertical;font-family:inherit;font-size:11pt;background:transparent;"></textarea></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">기타</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><textarea name="etcNote" rows="3" style="width:100%;border:0;outline:none;resize:vertical;font-family:inherit;font-size:11pt;background:transparent;"></textarea></td>
+</tr>
+</tbody>
+</table>

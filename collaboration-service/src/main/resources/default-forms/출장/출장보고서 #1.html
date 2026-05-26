@@ -1,0 +1,94 @@
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 1px solid #d1d5db; font-size: 10pt;">
+<colgroup>
+<col width="120"/><col width="280"/><col width="120"/><col width="280"/>
+</colgroup>
+<tbody>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">직위</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="position" style="width:100%;border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">출장자</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="travelerName" style="width:100%;border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">출장기간</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;">
+<input type="date" name="tripStart" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/> ~ <input type="date" name="tripEnd" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/>
+</td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">출장지</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="destination" style="width:100%;border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">출장지<br/>연락처</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="destinationContact" style="width:100%;border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">목적 및<br/>내용</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><textarea name="purpose" rows="6" style="width:100%;border:0;outline:none;resize:vertical;font-family:inherit;font-size:11pt;line-height:1.6;background:transparent;"></textarea></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">출장여비</td>
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db;"><input type="number" name="tripAllowance" min="0" style="width:200px;border:0;border-bottom:1px solid #d1d5db;outline:none;font-family:inherit;font-size:9pt;background:transparent;text-align:right;"/> 원</td>
+</tr>
+<tr>
+<td rowspan="3" style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">출장변경</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">기간</td>
+<td colspan="2" style="padding: 6px; border: 1px solid #d1d5db;">
+<input type="date" name="changeStart" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/> ~ <input type="date" name="changeEnd" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/>
+</td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">사유</td>
+<td colspan="2" style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="changeReason" style="width:100%;border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">여비</td>
+<td colspan="2" style="padding: 6px; border: 1px solid #d1d5db;"><input type="number" name="changeAllowance" min="0" style="width:200px;border:0;border-bottom:1px solid #d1d5db;outline:none;font-family:inherit;font-size:9pt;background:transparent;text-align:right;"/> 원</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 1px solid #d1d5db; font-size: 10pt;">
+<colgroup>
+<col width="120"/><col width="280"/><col width="120"/><col width="280"/>
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4" style="padding: 8px; border: 1px solid #d1d5db; background: #f9fafb;">※ 법인카드 사용 신청 (승인 후 재무팀에서 수령)</td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">사용기간</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;">
+<input type="date" name="cardUseStart" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/> ~ <input type="date" name="cardUseEnd" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/>
+</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">사용예정자</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="cardUser" style="width:100%;border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">반납예정일</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="returnPlanDate" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">불출일자</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="releaseDate" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 1px solid #d1d5db; font-size: 10pt;">
+<colgroup>
+<col width="130"/><col width="135"/><col width="130"/><col width="135"/><col width="135"/><col width="135"/>
+</colgroup>
+<tbody>
+<tr>
+<td colspan="6" style="padding: 8px; border: 1px solid #d1d5db; background: #f9fafb;">※ 법인카드 반납 확인 (재무팀 기재란, 출장자 미 작성)</td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">반납일</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="returnDate" style="border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">반납자확인</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="returnConfirmer" style="width:100%;border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">카드번호</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="cardNumber" style="width:100%;border:0;outline:none;font-family:inherit;font-size:9pt;background:transparent;"/></td>
+</tr>
+</tbody>
+</table>

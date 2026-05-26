@@ -55,7 +55,7 @@
 USE peoplecore;
 
 SET @company_name := 'peoplecore';
-SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name);
+SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name COLLATE utf8mb4_unicode_ci);
 
 -- ▼ 회사별 lookup ▼
 SET @e_ceo      := (SELECT emp_id FROM employee WHERE company_id=@cid AND emp_num='EMP-2025-001');
