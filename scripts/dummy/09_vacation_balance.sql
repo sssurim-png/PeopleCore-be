@@ -18,7 +18,7 @@ use peoplecore;
 -- =====================================================================
 
 SET @company_name := 'peoplecore';
-SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name);
+SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name COLLATE utf8mb4_unicode_ci);
 
 SET @vt_monthly := (SELECT type_id FROM vacation_type WHERE company_id=@cid AND type_code='MONTHLY');
 SET @vt_annual  := (SELECT type_id FROM vacation_type WHERE company_id=@cid AND type_code='ANNUAL');

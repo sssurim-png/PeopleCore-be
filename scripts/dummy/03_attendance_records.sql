@@ -26,7 +26,7 @@
 
         -- ▼ 회사 + 워크그룹 + 부서 ID lookup ▼
         SET @company_name := 'peoplecore';
-        SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name);
+        SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name COLLATE utf8mb4_unicode_ci);
 
         SET @wg_dev   := (SELECT work_group_id FROM work_group WHERE company_id=@cid AND group_code='WG-FLEX-DEV');
         SET @wg_sales := (SELECT work_group_id FROM work_group WHERE company_id=@cid AND group_code='WG-SALES-SAT');

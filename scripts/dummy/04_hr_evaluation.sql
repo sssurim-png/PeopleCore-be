@@ -27,7 +27,7 @@
 USE peoplecore;
 
 SET @company_name := 'peoplecore';
-SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name);
+SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name COLLATE utf8mb4_unicode_ci);
 
 SELECT
   IFNULL(BIN_TO_UUID(@cid),
@@ -246,7 +246,7 @@ FROM employee e
 JOIN grade g ON g.grade_id = e.grade_id
 WHERE e.company_id = @cid
   AND e.emp_status = 'ACTIVE'
-  AND e.title_id NOT IN (@t_head, @t_ceo);
+  AND e.title_id NOT IN (@t_head);   -- admin(T-CEO) 은 ranking 포함 → HR 부서장(rank 1) 으로 평가자 역할
 
 -- MySQL 은 한 쿼리에서 같은 temp 테이블을 두 번 참조 못 하므로 복제본 생성
 DROP TEMPORARY TABLE IF EXISTS tmp_dept_ranked_2;
@@ -279,7 +279,7 @@ FROM employee e
 LEFT JOIN tmp_dept_evaluator de ON de.dept_id = e.dept_id
 WHERE e.company_id = @cid
   AND e.emp_status = 'ACTIVE'
-  AND e.title_id NOT IN (@t_head, @t_ceo);
+  AND e.title_id NOT IN (@t_head);
 
 -- =====================================================================
 -- STEP 4. Season 6개 + Stage 30개
@@ -403,7 +403,7 @@ FROM (
     AND kt.is_active = true
   WHERE e.company_id = @cid
     AND e.emp_status = 'ACTIVE'
-    AND e.title_id NOT IN (@t_head, @t_ceo)                                  -- 본부장(임원) 제외
+    AND e.title_id NOT IN (@t_head)                                  -- 본부장(임원) 제외
 ) k
 JOIN kpi_option k_cat  ON k_cat.option_id  = k.category_option_id
 JOIN kpi_option k_unit ON k_unit.option_id = k.unit_option_id
@@ -480,7 +480,7 @@ CROSS JOIN season s
 CROSS JOIN (SELECT 1 AS n UNION SELECT 2 UNION SELECT 3) okr_n
 WHERE e.company_id = @cid
   AND e.emp_status = 'ACTIVE'
-  AND e.title_id NOT IN (@t_head, @t_ceo)                                    -- 본부장(임원) 제외
+  AND e.title_id NOT IN (@t_head)                                    -- 본부장(임원) 제외
   AND s.company_id = @cid
   AND s.season_id IN (@s_2024h1, @s_2024h2, @s_2025h1, @s_2025h2, @s_2026h1)
   AND e.emp_hire_date < s.start_date
@@ -550,7 +550,7 @@ LEFT JOIN tmp_dept_evaluator de ON de.dept_id = e.dept_id
 CROSS JOIN season s
 WHERE e.company_id = @cid
   AND e.emp_status = 'ACTIVE'
-  AND e.title_id NOT IN (@t_head, @t_ceo)
+  AND e.title_id NOT IN (@t_head)
   AND e.emp_hire_date < s.start_date
   AND s.season_id IN (@s_2024h1, @s_2024h2, @s_2025h1, @s_2025h2);
 
@@ -585,7 +585,7 @@ FROM (
   LEFT JOIN tmp_dept_evaluator de ON de.dept_id = e.dept_id
   WHERE e.company_id = @cid
     AND e.emp_status = 'ACTIVE'
-    AND e.title_id NOT IN (@t_head, @t_ceo)
+    AND e.title_id NOT IN (@t_head)
     AND e.emp_hire_date < '2026-01-01'
 ) sub;
 
@@ -676,7 +676,7 @@ LEFT JOIN tmp_dept_evaluator de ON de.dept_id = e.dept_id
 CROSS JOIN season s
 WHERE e.company_id = @cid
   AND e.emp_status = 'ACTIVE'
-  AND e.title_id NOT IN (@t_head, @t_ceo)
+  AND e.title_id NOT IN (@t_head)
   AND e.emp_hire_date < s.start_date
   AND s.season_id IN (@s_2024h1, @s_2024h2, @s_2025h1, @s_2025h2);
 
@@ -793,7 +793,7 @@ JOIN department d ON d.dept_id = e.dept_id
 LEFT JOIN tmp_dept_evaluator de ON de.dept_id = e.dept_id
 WHERE e.company_id = @cid
   AND e.emp_status = 'ACTIVE'
-  AND e.title_id NOT IN (@t_head, @t_ceo)
+  AND e.title_id NOT IN (@t_head)
   AND e.emp_hire_date < '2026-01-01';
 
 
