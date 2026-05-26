@@ -127,11 +127,11 @@
 
 **성과평가 산정**
 
-<img width="400" height="215" alt="성과평가 산정" src="https://github.com/user-attachments/assets/051007f9-df32-4b6c-babe-9a4961e36c89" />
+<img src="https://github.com/user-attachments/assets/051007f9-df32-4b6c-babe-9a4961e36c89" alt="성과평가 산정" width="800" />
 
 **평가 결과 및 이력**
 
-<img width="400" height="206" alt="평가결과 및 이력" src="https://github.com/user-attachments/assets/f678ee0b-554f-4721-a2e9-353cd635d297" />
+<img src="https://github.com/user-attachments/assets/f678ee0b-554f-4721-a2e9-353cd635d297" alt="평가결과 및 이력" width="800" />
 
 </details>
 
@@ -202,19 +202,19 @@
 
 **인력 현황**
 
-<img width="400" height="182" alt="인력 현황" src="https://github.com/user-attachments/assets/dee784c1-64af-41d6-8ef8-09b5f282a3ca" />
+<img src="https://github.com/user-attachments/assets/dee784c1-64af-41d6-8ef8-09b5f282a3ca" alt="인력 현황" width="800" />
 
 **인사발령 및 이력확인**
 
-<img width="400" height="183" alt="인사발령" src="https://github.com/user-attachments/assets/e255b10c-301f-4fe3-b916-d718f5449b7b" />
+<img src="https://github.com/user-attachments/assets/e255b10c-301f-4fe3-b916-d718f5449b7b" alt="인사발령" width="800" />
 
 **계약서 등록**
 
-<img width="400" height="206" alt="계약서 등록" src="https://github.com/user-attachments/assets/65cc35f6-044c-4588-af36-870ee81b4447" />
+<img src="https://github.com/user-attachments/assets/65cc35f6-044c-4588-af36-870ee81b4447" alt="계약서 등록" width="800" />
 
 **퇴직처리**
 
-<img width="400" height="206" alt="퇴직처리" src="https://github.com/user-attachments/assets/a2a4063d-78cf-4912-990e-34f757cf203c" />
+<img src="https://github.com/user-attachments/assets/a2a4063d-78cf-4912-990e-34f757cf203c" alt="퇴직처리" width="800" />
 
 </details>
 
@@ -677,7 +677,7 @@
 <summary><font size="5"><strong>성과</strong></font></summary>
 
 **평가자 맵핑**
-<img width="400" height="181" alt="평가자 맵핑" src="https://github.com/user-attachments/assets/2b8652ff-3208-4253-b2a9-ea6ef0d8bad4" />
+<img src="https://github.com/user-attachments/assets/2b8652ff-3208-4253-b2a9-ea6ef0d8bad4" alt="평가자 맵핑" width="800" />
 
 **성과평가 규칙 설정**
 ![성과평가 규칙 설정](picture/gifs/성과평가%20규칙%20설정.gif)
@@ -689,7 +689,7 @@
 ![평가 시즌 생성](picture/gifs/평가생성.gif)
 
 **단계 개폐 및 기간 연장**
-<img width="400" height="182" alt="단계 계폐 및 기간연장" src="https://github.com/user-attachments/assets/465bf5a7-f78e-4190-ad75-1ea197f3101e" />
+<img src="https://github.com/user-attachments/assets/465bf5a7-f78e-4190-ad75-1ea197f3101e" alt="단계 계폐 및 기간연장" width="800" />
 
 **피평가자 목표 작성**
 ![피평가자 목표 작성](picture/gifs/피평가자목표작성,%20평가자검토.gif)
@@ -698,7 +698,7 @@
 ![평가자 검토](picture/gifs/피평가자목표작성,%20평가자검토.gif)
 
 **상위자 평가**
-<img width="400" height="183" alt="상위자평가" src="https://github.com/user-attachments/assets/8fcb3a62-1535-4ce0-b9fa-8165d187d85c" />
+<img src="https://github.com/user-attachments/assets/8fcb3a62-1535-4ce0-b9fa-8165d187d85c" alt="상위자평가" width="800" />
 
 </details>
 
