@@ -2,7 +2,7 @@
 
 <p align="center">
   <!-- TODO: 메인 이미지 교체 (예: picture/main.png) -->
-  <img src="picture/peoplecore-banner.png" alt="PeopleCore 메인 이미지" width="800" />
+  <img src="picture/peoplecore-banner.png" alt="PeopleCore 메인 이미지" width="400" />
 </p>
 
 **PeopleCore**는 인사·근태·급여·성과·전자결재·협업·AI Copilot을 단일 플랫폼으로 통합한 **워크플로우 기반 엔터프라이즈 SaaS**입니다.
@@ -125,6 +125,14 @@
 <details>
 <summary><font size="5"><strong>성과 평가 (Evaluation)</strong></font></summary>
 
+**성과평가 산정**
+
+<video src="https://github.com/user-attachments/assets/b64e8d49-1cf4-4fcb-b4d7-0eead3e217a3" autoplay muted loop playsinline width="800"></video>
+
+**평가 결과 및 이력**
+
+<video src="https://github.com/user-attachments/assets/ae70a95d-503b-4fbe-8fff-629dcfd9e39f" autoplay muted loop playsinline width="800"></video>
+
 </details>
 
 <details>
@@ -176,7 +184,7 @@
 <details>
 <summary><font size="5"><strong>로그인</strong></font></summary>
 <p align="center">
-  <img src="picture/gifs/login.gif" width="800" />
+  <img src="picture/gifs/login.gif" width="400" />
 </p>
 
 </details>
@@ -184,7 +192,7 @@
 <details>
 <summary><font size="5"><strong>안면인식 로그인</strong></font></summary>
 <p align="center">
-  <img src="picture/gifs/face_login.gif" width="800" />
+  <img src="picture/gifs/face_login.gif" width="400" />
 </p>
 
 </details>
@@ -193,10 +201,20 @@
 <summary><font size="5"><strong>사원 관리</strong></font></summary>
 
 **인력 현황**
-<video src="picture/gifs/인력 현황.mp4" controls width="800"></video>
+
+<video src="https://github.com/user-attachments/assets/53c6b20f-8f03-4f1c-afb6-70109459d4b5" autoplay muted loop playsinline width="800"></video>
 
 **인사발령 및 이력확인**
-<video src="picture/gifs/인사발령.mp4" controls width="800"></video>
+
+<video src="https://github.com/user-attachments/assets/357eb242-535d-49f8-8f86-7a563eaf1202" autoplay muted loop playsinline width="800"></video>
+
+**계약서 등록**
+
+<video src="https://github.com/user-attachments/assets/a64c6f82-f2d2-479d-86a9-5d0d00f95cfd" autoplay muted loop playsinline width="800"></video>
+
+**퇴직처리**
+
+<video src="https://github.com/user-attachments/assets/199e4ffc-adc6-4026-b83d-ff7de17ddab9" autoplay muted loop playsinline width="800"></video>
 
 </details>
 
@@ -315,22 +333,22 @@
 
 - 파일 및 폴더 생성 / 삭제
 <p align="center">
-  <img src="picture/gifs/file_create.gif" width="800" />
+  <img src="picture/gifs/file_create.gif" width="400" />
 </p>
 
 - 파일 및 폴더 즐겨찾기
 <p align="center">
-  <img src="picture/gifs/file_star.gif" width="800" />
+  <img src="picture/gifs/file_star.gif" width="400" />
 </p>
 
 - 공용 파일함 생성 권한 설정
 <p align="center">
-  <img src="picture/gifs/file_permission.gif" width="800" />
+  <img src="picture/gifs/file_permission.gif" width="400" />
 </p>
 
 - 공용 파일함 멤버 초대 및 멤버별 권한 설정
 <p align="center">
-  <img src="picture/gifs/file_member_permission.gif" width="800" />
+  <img src="picture/gifs/file_member_permission.gif" width="400" />
 </p>
 
 </details>
@@ -341,7 +359,7 @@
 <!-- 통합검색 서비스 화면 자료를 여기에 추가하세요. -->
 
 <p align="center">
-  <img src="picture/gifs/search.gif" width="800" />
+  <img src="picture/gifs/search.gif" width="400" />
 </p>
 </details>
 
@@ -350,32 +368,32 @@
 
 - 캘린더에 일정 생성하기
 <p align="center">
-  <img src="picture/gifs/ai_calendar.gif" width="800" />
+  <img src="picture/gifs/ai_calendar.gif" width="400" />
 </p>
 
 - 휴가신청 젅자결재 생성하기
 <p align="center">
-  <img src="picture/gifs/search.gif" width="800" />
+  <img src="picture/gifs/search.gif" width="400" />
 </p>
 
 - 오늘 할 일(다이제스트) 조회
 <p align="center">
-  <img src="picture/gifs/ai_digest.gif" width="800" />
+  <img src="picture/gifs/ai_digest.gif" width="400" />
 </p>
 
 - 자신의 민감 정보 조회 
 <p align="center">
-  <img src="picture/gifs/ai_my_info.gif" width="800" />
+  <img src="picture/gifs/ai_my_info.gif" width="400" />
 </p>
 
 - 타인의 민감 정보 조회
 <p align="center">
-  <img src="picture/gifs/ai_other_info.gif" width="800" />
+  <img src="picture/gifs/ai_other_info.gif" width="400" />
 </p>
 
 - 이전 대화 이력 보존
 <p align="center">
-  <img src="picture/gifs/ai_log.gif" width="800" />
+  <img src="picture/gifs/ai_log.gif" width="400" />
 </p>
 
 </details>
@@ -385,17 +403,17 @@
 
 - 부서 생성 및 순서 편집
 <p align="center">
-  <img src="picture/gifs/org_create.gif" width="800" />
+  <img src="picture/gifs/org_create.gif" width="400" />
 </p>
 
 - 직급 생성 및 순서 편집
 <p align="center">
-  <img src="picture/gifs/grade.gif" width="800" />
+  <img src="picture/gifs/grade.gif" width="400" />
 </p>
 
 - 직책 생성 및 순서 편집
 <p align="center">
-  <img src="picture/gifs/title.gif" width="800" />
+  <img src="picture/gifs/title.gif" width="400" />
 </p>
 </details>
 
@@ -404,42 +422,42 @@
 
 - 1대1 채팅방 생성
 <p align="center">
-  <img src="picture/gifs/chat_room_create.gif" width="800" />
+  <img src="picture/gifs/chat_room_create.gif" width="400" />
 </p>
 
 - 그룹 채팅방 생성
 <p align="center">
-  <img src="picture/gifs/chat_room_create.gif" width="800" />
+  <img src="picture/gifs/chat_room_create.gif" width="400" />
 </p>
 
 - 조직도를 통한 채팅 시작
 <p align="center">
-  <img src="picture/gifs/org_chart_chat.gif" width="800" />
+  <img src="picture/gifs/org_chart_chat.gif" width="400" />
 </p>
 
 - 메시지 송/수신
 <p align="center">
-  <img src="picture/gifs/messaging.gif" width="800" />
+  <img src="picture/gifs/messaging.gif" width="400" />
 </p>
 
 - 메시지 삭제
 <p align="center">
-  <img src="picture/gifs/message_delete.gif" width="800" />
+  <img src="picture/gifs/message_delete.gif" width="400" />
 </p>
 
 - 파일 전송
 <p align="center">
-  <img src="picture/gifs/file_send2.gif" width="800" />
+  <img src="picture/gifs/file_send2.gif" width="400" />
 </p>
 
 - 채팅방, 메시지 검색
 <p align="center">
-  <img src="picture/gifs/chat_search.gif" width="800" />
+  <img src="picture/gifs/chat_search.gif" width="400" />
 </p>
 
 - 채팅방 나가기
 <p align="center">
-  <img src="picture/gifs/chat_del.gif" width="800" />
+  <img src="picture/gifs/chat_del.gif" width="400" />
 </p>
 </details>
 
@@ -659,7 +677,7 @@
 <summary><font size="5"><strong>성과</strong></font></summary>
 
 **평가자 맵핑**
-<video src="picture/gifs/평가자 맵핑.mp4" controls width="800"></video>
+<video src="https://github.com/user-attachments/assets/6aacfe48-168f-40ec-8c40-2b4e37fb0481" autoplay muted loop playsinline width="800"></video>
 
 **성과평가 규칙 설정**
 ![성과평가 규칙 설정](picture/gifs/성과평가%20규칙%20설정.gif)
@@ -671,7 +689,7 @@
 ![평가 시즌 생성](picture/gifs/평가생성.gif)
 
 **단계 개폐 및 기간 연장**
-<video src="picture/gifs/단계 계폐 및 기간연장.mp4" controls width="800"></video>
+<video src="https://github.com/user-attachments/assets/2bd9a895-47ec-4bc9-a8b6-33a91ed198ae" autoplay muted loop playsinline width="800"></video>
 
 **피평가자 목표 작성**
 ![피평가자 목표 작성](picture/gifs/피평가자목표작성,%20평가자검토.gif)
@@ -680,7 +698,7 @@
 ![평가자 검토](picture/gifs/피평가자목표작성,%20평가자검토.gif)
 
 **상위자 평가**
-<video src="picture/gifs/상위자평가.mp4" controls width="800"></video>
+<video src="https://github.com/user-attachments/assets/2df4115b-4e4a-4084-a684-d2463160fe90" autoplay muted loop playsinline width="800"></video>
 
 </details>
 
@@ -738,6 +756,25 @@
 |------------------------------------------------|---------------------------------------|
 | [MySQL 월별 파티셔닝](docs_md/mysql-partitioning.md) | 수천만 행 근태 테이블 월별 파티셔닝 + 더티체킹 함정 해결     |
 | [출퇴근 IP 정책](docs_md/commute-ip-policy.md)      | 멀티 홉 환경에서 클라이언트 공인 IP 정확 추출 + CIDR 매칭 |
+
+</details>
+
+<details>
+<summary><font size="5"><strong>사원 관리</strong></font></summary>
+
+| 문서                                                              | 핵심 내용                                                                                          |
+|-----------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [회사별 사원 폼 - 기본/커스텀 두 층위](docs_md/employee-dynamic-form.md)      | `Employee.customFields` JSON + `FormFieldSetup` · 기본 항목(on/off) + 커스텀(JSON) 분리 · 폼 정의·값 분리 |
+
+</details>
+
+<details>
+<summary><font size="5"><strong>성과 평가</strong></font></summary>
+
+| 문서                                                                  | 핵심 내용                                                                                  |
+|---------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| [시즌 무결성 아키텍처](docs_md/evaluation-season-integrity.md)               | `Season.formSnapshot` 박제 · `EvalGrade.@Version` 낙관적 락 · 평가자 퇴직 `AFTER_COMMIT` 이벤트 보정 |
+| [자동 산식 - Z-score + 강제분포](docs_md/evaluation-grade-calculation.md)  | 점수 집계 → 가중치 → Z-score 팀장 편향 보정 → 강제분포 4단 알고리즘 · BigDecimal 결정성                       |
 
 </details>
 
@@ -1371,6 +1408,216 @@ Search API (/search-service/search)
 
 </details>
 
+<details>
+<summary><font size="5"><strong>사원 관리</strong></font></summary>
+
+<details>
+<summary>1. 사원 조회 N+1 - 연관 정보 개별 조회</summary>
+
+**문제 사항**
+
+- 인력 현황 페이지 사원 100명 조회 시 사원마다 부서·직급·조직 추가 조회 → 쿼리 수백 회 발생
+- 사원 수 비례로 응답 시간 증가
+- 페이지 진입 지연
+
+**원인 분석**
+
+- 사원 엔티티의 부서·직급·조직 연관 관계 lazy 로딩 → 사원 한 명당 개별 SELECT
+- 페이지네이션 적용해도 페이지 단위로 동일 N+1 패턴 반복
+- 첫 화면에 사원 수 × 연관 정보 동시 요구
+
+**시도 방법**
+
+- 단일 거대 조인 쿼리
+    - 사원 × 부서 × 직급 × 조직 카티전 곱 → 결과 행 수 증가, 페이징 처리 어려움
+- 페이지 사이즈 축소
+    - 페이지 한 건 응답 단축, 전체 누적 비용 동일
+- 사원별 캐싱
+    - 사원 정보 변경 시 무효화 정책 복잡
+
+**해결 방법**
+
+- `EmployeeRepository` 조회 메서드에 `LEFT JOIN FETCH` / `JOIN FETCH` 적용 → 사원 + 부서 + 직급 + 직책 한 쿼리 일괄 로딩
+- 빈번 조회마다 fetch join 메서드 분리 (`findActiveEmployeesWithDeptAndGrade`, `findEvalTargetsByCompany`, `findTitleHoldersByDeptId`)
+- 카운트 쿼리 별도 분리 → 페이징 호환 유지
+
+**결과**
+
+- DB 왕복 횟수 일정 → 응답 시간 안정화
+- 사원 수 확장에도 페이지 성능 유지
+
+</details>
+
+<details>
+<summary>2. 사원 폼 운영 - 회사별 자유도와 무결성 충돌</summary>
+
+**문제 사항**
+
+- 회사 생성 시 기본 값 X
+- 사원 정보는 급여·근태·평가 등 다른 모듈이 의존하는 표준 키 보유 → 핵심 필드 삭제 시 모듈 간 연동 파괴
+- 회사가 폼 정의를 변경할 때마다 기존 사원 데이터를 마이그레이션해야 하는 부담 발생
+
+**원인 분석**
+
+- 사원 정보에는 다른 모듈이 의존하는 필수 항목과 회사 자율 항목이 혼재
+- 둘을 같은 방식으로 다루면 필수 항목도 회사가 삭제 가능
+- 폼 정의와 사원 데이터를 같은 출처로 묶으면 폼 변경마다 데이터 이전 필요
+
+**시도 방법**
+
+- 모든 항목을 동등하게 자유 추가·삭제
+    - 사원 핵심 정보 보호 장치 부재, 회사 실수 한 번으로 인사 무결성 파괴 가능
+- 회사가 폼 변경 시 기존 사원 데이터 일괄 마이그레이션
+    - 회사 수·사원 수에 비례한 마이그레이션 비용, 진행 중 일관성 보장 어려움
+- 표준 양식 강제 (커스텀 미지원)
+    - SaaS 커스터마이즈 컨셉과 모순
+
+**해결 방법**
+
+- 양식을 두 층위로 분리
+    - **기본 항목**: 정적 컬럼 유지 + 회사가 사용 여부(on/off) 만 선택해 화면 노출 제어 → 컬럼은 보존, off 후 다시 on 시 데이터 그대로 유지
+    - **커스텀 항목**: `Employee.customFields` 를 `@JdbcTypeCode(SqlTypes.JSON)` `Map<String, String>` 으로 정의 → 회사 담당자가 자유 추가·삭제
+- `isFixed` / `locked` 플래그로 기본 필드 보호 → 커스텀 작업이 인사 핵심 정보에 영향 없음
+- 사원 수정 화면은 폼 정의와 값을 두 출처에서 분리 조회
+    - 폼 구조: 회사 현재 `FormFieldSetup` 실시간 조회 → 폼 변경 즉시 반영
+    - 값: 사원에 저장된 기본 컬럼 + customFields JSON 에서 조회 → 폼 변경이 사원 데이터에 영향 없음
+- `FormFieldSetup` 에서 회사별 + 폼타입별 필드 정의 관리 (`company_id + form_type + field_key` UNIQUE)
+
+**결과**
+
+- 사원 핵심 정보 보호 → 회사 담당자 임의 변경으로 인한 인사 무결성 파괴 차단
+- 기본 항목 on/off 토글로 데이터 손실 없이 화면 제어 → 회사 정책 변경 부담 감소
+- 폼 변경 시 기존 사원 데이터 마이그레이션 불필요
+- 폼·값 분리로 폼 변경이 사원 데이터 무결성에 영향 없음 → 운영 자유도 증가
+
+</details>
+
+</details>
+
+<details>
+<summary><font size="5"><strong>성과 평가</strong></font></summary>
+
+<details>
+<summary>1. 등급 보정 동시성 - 강제분포 비율 불일치</summary>
+
+**문제 사항**
+
+- 여러 HR 담당자가 같은 시즌 동시 보정 시 마지막 저장만 반영 → 강제분포(S 10% / A 20% / B 40% / C 20% / D 10%) 비율 어긋남
+- 일부 보정 이력 유실 → 평가 결과 정합성 어긋남
+
+**원인 분석**
+
+- 보정 흐름이 조회 → 비율 판단 → 일괄 저장 → 처리 사이 다른 트랜잭션 개입 가능
+- JPA 기본 Last-Write-Wins → 후행 트랜잭션이 선행 변경을 모르고 저장
+- 보정은 시즌 단위 사원 수십~수백 명 행 일괄 갱신 → 충돌 영향 범위 넓음
+
+**시도 방법**
+
+- DB 비관적 락(`@Lock(PESSIMISTIC_WRITE)`)
+    - `SELECT ... FOR UPDATE` 행 선점, 충돌 사전 방지
+    - 보정 단위 다수 행 갱신 → 락 점유 시간 길어 다른 HR 작업 대기, 처리량 감소
+- Redis 분산 락
+    - 시즌 단위 lock key 획득, 동시 진입 방지
+    - 보정 중 자리 비울 경우 무기한 대기, 락 만료/점유 정책 복잡
+- 트랜잭션 격리 수준 상향(`SERIALIZABLE`)
+    - 일반 조회까지 영향, 한 케이스 위해 전체 격리 상향은 과도
+
+**해결 방법**
+
+- `EvalGrade` 엔티티에 `@Version` 필드 추가 → JPA 의 UPDATE 시 `WHERE id = ? AND version = ?` 자동 부여
+- 후행 트랜잭션 0 row affected → `OptimisticLockingFailureException` 발생
+- 전역 `GlobalExceptionHandler` 에서 HTTP 409 + `OPTIMISTIC_LOCK_CONFLICT` 코드 변환
+
+**결과**
+
+- 선행 보정 보존, 후행 HR 은 최신 데이터 기준 재시도
+- 강제분포 비율 정합성 유지
+- 락 미사용 → 처리량 유지
+
+</details>
+
+<details>
+<summary>2. 시즌 규칙 변경 - 무결성 훼손</summary>
+
+**문제 사항**
+
+- 인사팀이 평가 시즌 진행 중 가중치·강제분포 비율 같은 규칙 수정 시 이미 산정된 점수와 진행 중 평가 결과 변동
+- 동일 시즌 안 사원마다 다른 기준으로 등급 계산 → 평가 공정성 어긋남
+
+**원인 분석**
+
+- 계산 엔진이 회사 규칙(`EvaluationRules`) 매 산정마다 실시간 조회 → 규칙 변경 순간 과거·현재 계산 기준 혼재
+- 규칙 변경 시점 분리 장치 없음
+
+**시도 방법**
+
+- 규칙 변경 시 진행 중 시즌 전체 재계산
+    - 인사팀 의도와 무관하게 진행 중 시즌 영향, 재계산 비용 큼
+- 규칙 버전 별도 관리 + 시즌마다 버전 ID 지정
+    - 시즌별 참조 버전 명시 가능
+    - 시즌 OPEN 후 규칙 또 변경 시 참조 버전 모호, 인사팀이 매 시즌 버전 선택 부담
+- 시즌 OPEN 후 규칙 변경 잠금
+    - 다음 시즌 준비 위한 사전 수정 불가, 인사팀 업무 흐름 제약
+
+**해결 방법**
+
+- `Season` 엔티티에 `form_snapshot` JSON 컬럼 추가 → 시즌 OPEN 시점 회사 규칙 전체 JSON 직렬화 후 박제
+- `SeasonService.openSeason()` 에서 `rulesService.buildMergedSnapshotJson(rules)` 로 규칙 병합 후 `season.freezeSnapshot()` 호출
+- 계산 엔진은 공식 하드코딩 없이 해당 스냅샷만 참조
+
+**결과**
+
+- 시즌 도중 규칙 변경에도 그 시즌 계산은 OPEN 시점 규칙 고정
+- 진행 중 시즌과 다음 시즌 규칙 수정 작업 분리
+- 시즌 간 일관성 확보
+
+</details>
+
+<details>
+<summary>3. 평가자 퇴직 - 시즌 매핑 정합성 훼손</summary>
+
+**문제 사항**
+
+- 평가 시즌 진행 중 평가자 퇴직 시 `EvalGrade` 행의 평가자 ID 무효 상태로 유지
+- 매핑 끊긴 상태로 시즌 진행 시 해당 피평가자 평가 누락
+- 시즌 생성 시 매핑 일부만 설정된 상태로 운영 시작 시 평가 단계에서 누락 발견 → 시즌 진행 지연
+
+**원인 분석**
+
+- 평가 시즌과 사원 도메인 분리 → 사원 퇴직이 평가 매핑에 자동 반영 안 됨
+- 매핑 검증 수동 → 사원 수 많을수록 누락 가능
+- 퇴직 트랜잭션 내부 평가 매핑 동기 정리 시 후속 작업 실패가 퇴직 자체 실패로 전이
+
+**시도 방법**
+
+- 시즌 운영자가 시즌 생성 전 매핑 상태 수동 점검
+    - 검증 누락 가능, 활성 사원 수 많을수록 운영 부담 증가
+- 평가자 퇴직 시 퇴직 트랜잭션 안에서 평가 매핑 동기 정리
+    - 평가 정리 실패 시 퇴직 트랜잭션 자체 막힘 → 인사 업무 가용성 저하
+- 시즌 OPEN 시점 자동 재배정
+    - 재배정 대상 시스템 판단 근거 부족, 인사 권한 영역 코드 대체 부작용
+
+**해결 방법**
+
+- 시즌 생성 단계 사전 검증
+    - `SeasonService.createSeason()` 에서 활성 사원 중 매핑 미결정자(`excluded=false && evaluator=null`) 검증
+    - 미지정자 발견 시 시즌 생성 차단
+- 시즌 OPEN 후 평가자 퇴직 시 이벤트 기반 자동 보정
+    - 퇴직 트랜잭션 커밋 후 `EmployeeRetiredEvent` 발행 → `EvaluatorRetirementListener` 가 AFTER_COMMIT 수신 → 퇴직 트랜잭션과 분리
+    - `EvaluatorRetirementHandler` 가 글로벌 매핑(`EmpEvaluatorGlobal`)에서 해당 평가자 row 삭제 + 진행 중 시즌(OPEN)의 `EvalGrade` 중 평가자가 퇴직자인 행 선별
+    - `EvalGrade.clearEvaluator()` 호출 → 평가자 필드 null 화
+- HR_ADMIN 알림으로 수동 재배정 유도
+
+**결과**
+
+- 매핑이 미완성인 채 시즌이 만들어지지 않음 → 시즌 운영 시작 시점에 평가 누락 위험 제거
+- 평가자 퇴직 직후 해당 사원의 평가가 미지정 상태로 복구 → 진행 중 시즌의 평가 누락 방지
+- 평가 정리 실패가 퇴직 처리에 영향 없음, 퇴직 롤백 시 평가 정리도 시도되지 않음 → 두 작업 간 일관성 유지
+
+</details>
+
+</details>
+
 ---
 
 <br>
@@ -1381,7 +1628,7 @@ Search API (/search-service/search)
 <summary><b>이수림</b></summary>
 <br>
 
-> 사원관리와 성과 모듈을 담당했습니다. 특히 성과 평가 도메인은 프로젝트 시작 전까지 전혀 알지 못했던 영역이었지만, 평가 시즌 구조, KPI 지표 설계, 평가자 맵핑까지 직접 파고들며 완성도 있게 구현해냈습니다. 끝까지 해내는 과정에서 기술적인 성장뿐 아니라 스스로에 대한 자신감도 얻을 수 있었던 프로젝트였습니다.
+> 사원관리와 성과 모듈을 담당했습니다. 커스텀과 성과 평가 도메인은 프로젝트 시작 전까지는 생소한 영역이었지만, 평가 시즌 운영 방식부터 KPI 지표 설계, 평가자 매핑 구조까지 직접 학습하고 분석하며 완성도 있게 구현해냈습니다. 낯선 도메인을 끝까지 책임지고 해결해나가는 과정에서 기술적인 성장뿐 아니라 새로운 영역도 빠르게 이해하고 주도적으로 추진할 수 있다는 자신감을 얻을 수 있었습니다. 또한 프로젝트를 함께한 팀원들의 적극적인 협업과 소통 덕에 좋은 방향으로 고민하며 완성도를 높여갈 수 있었습니다. 이에 함께 성장하는 경험의 중요성도 같이 느낄 수 있었습니다.
 
 </details>
 
