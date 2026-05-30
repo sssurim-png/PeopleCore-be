@@ -293,21 +293,79 @@
 
 - 캘린더 일정 등록  
 <p align="center"> 
-  <img src="picture/캘린더일정등록.png" alt="캘린더 일정등록 화면" width="900" /> 
+  <img src="picture/calendar_event_create.png" alt="캘린더 일정등록 화면" width="900" /> 
 </p> 
 
-- 캘린더 관리(환경설정) 
+- 일정참석자 - 캘린더 일정 등록 알림
 <p align="center"> 
-  <img src="picture/캘린더관리.png" alt="캘린더 관리 화면" width="900" /> 
+  <img src="picture/calendar_event_attendees_alarm.png" alt="일정참석자 일정등록 알림 화면" width="900" /> 
 </p> 
+
+- 일정참석자 - 캘린더 일정 조회 
+<p align="center"> 
+  <img src="picture/calendar_event_attendee_read.png" alt="일정참석자 일정조회 화면" width="900" /> 
+</p> 
+
+- 관심캘린더
+  - 관심캘린더 등록
+    <p align="center"> 
+      <img src="picture/calendar_interest_create.png" alt="관심캘린더 등록 화면" width="900" /> 
+    </p> 
+  - 관심캘린더 등록 요청 알림
+    <p align="center"> 
+      <img src="picture/calendar_interest_req_alarm.png" alt="관심캘린더 등록요청 알림 화면" width="900" /> 
+    </p> 
+  - 관심캘린더 일정 조회
+    <p align="center"> 
+      <img src="picture/calendar_interest_read.png" alt="관심캘린더 일정조회 화면" width="900" /> 
+    </p> 
+  - 관심캘린더 관리(환경설정) 
+    <p align="center"> 
+      <img src="picture/calendar_interest_settings.png" alt="관심캘린더 관리 화면" width="900" /> 
+    </p> 
+  
+- 전사일정
+  - 전사일정 등록
+    <p align="center"> 
+      <img src="picture/calendar_company_event_create.png" alt="전사 일정등록 화면" width="900" /> 
+    </p> 
+  - 직원 전사일정 조회(캘린더에 자동 저장)
+    <p align="center"> 
+      <img src="picture/calendar_company_event_read.png" alt="전사 일정조회 화면" width="900" /> 
+    </p> 
 
 </details>
 
 <details>
 <summary><font size="5"><strong>내 설정</strong></font></summary>
 
-<!-- 내 설정 서비스 화면 자료를 여기에 추가하세요. -->
-
+- 내 정보관리
+  - 정보 조회 및 프로필 관리
+    <p align="center"> 
+      <img src="picture/my_settings_profile.png" alt="내정보 조회 화면-1" width="900" /> 
+    </p> 
+  - 외부이메일 변경
+    <p align="center"> 
+      <img src="picture/my_settings_mail.png" alt="내정보 조회 화면-2" width="900" /> 
+    </p>
+  
+- 보안설정
+  - 보안설정 목록
+    <p align="center"> 
+      <img src="picture/my_settings_protect.png" alt="보안설정 목록 화면" width="900" /> 
+    </p>
+  - 비밀번호 관리
+    <p align="center"> 
+      <img src="picture/my_settings_password.png" alt="비밀번호 관리 화면" width="900" /> 
+    </p>
+  - 로그인 이력 정보
+    <p align="center"> 
+      <img src="picture/my_settings_login.png" alt="로그인 이력 정보 화면" width="900" /> 
+    </p>
+  - 인사통합 pin 관리
+    <p align="center"> 
+      <img src="picture/my_settings_pin.png" alt="인사통합 pin 관리 화면" width="900" /> 
+    </p>
 </details>
 
 <details>
@@ -353,7 +411,7 @@
   <img src="picture/gifs/ai_calendar.gif" width="800" />
 </p>
 
-- 휴가신청 젅자결재 생성하기
+- 휴가신청 전자결재 생성하기
 <p align="center">
   <img src="picture/gifs/search.gif" width="800" />
 </p>
@@ -610,11 +668,17 @@
 
 
 - 급여정책 설정 (최고권한자 설정 화면) 
-  - 지급/공제 항목 관리 
+  - 급여지급 설정 
+  <img src="picture/1.급여정책설정-급여지급설정.png" alt="급여지급설정 화면" width="900" />
+  - 지급 항목 관리 
   <img src="picture/2.급여정책설정-지급항목관리.png" alt="지급항목관리 화면" width="900" /> 
+  - 공제 항목 관리
   <img src="picture/3.급여정책설정-공제항목관리.png" alt="공제항목관리 화면" width="900" /> 
- 
-  - 퇴직연금 설정 관리 
+  - 법정수당산정
+  <img src="picture/4.급여정책설정-법정수당산정.png" alt="법정수당산정 화면" width="900" />
+  - 사회보험요율표
+  <img src="picture/5.급여정책설정-사회보험요율표.png" alt="사회보험요율표 화면" width="900" />
+  - 퇴직연금 설정
   <img src="picture/7.급여정책설정-퇴직연금설정.png" alt="퇴직연금설정 화면" width="900" /> 
 
 - 급여관리 (HR담당자 업무 화면) 
@@ -1144,8 +1208,33 @@ Search API (/search-service/search)
 
 </details>
 
+
 <details>
-<summary><h3>통합검색</h3></summary>
+<summary><strong>캘린더</strong></summary>
+<details>
+<summary>1. </summary>
+
+</details>
+<details>
+<summary>2. </summary>
+
+</details>
+</details>
+
+<details>
+<summary><strong>급여</strong></summary>
+<details>
+<summary>1. </summary>
+
+</details>
+<details>
+<summary>2. </summary>
+
+</details>
+</details>
+
+<details>
+<summary><strong>통합검색</strong></summary>
 <details>
 <summary>1. DB와 ES의 데이터 정합성 - Debezium</summary>
 
@@ -1252,7 +1341,7 @@ Search API (/search-service/search)
 </details>
 
 <details>
-<summary><h3>AI</h3></summary>
+<summary><strong>AI</strong></summary>
 <details>
 <summary>1. 민감 정보 보호 - 외부 LLM 데이터 유출 위험</summary>
 
@@ -1401,7 +1490,7 @@ Search API (/search-service/search)
 <summary><b>홍진희</b></summary>
 <br>
 
-> 급여와 캘린더 모듈을 담당했습니다. 급여 도메인은 세율과 관련 법규를 정확히 준수해야 하는 영역인 만큼, 기능 구현 이전에 법적 기준을 제대로 이해하는 데 많은 시간을 쏟았습니다. 그 과정에서 고민의 깊이가 곧 코드의 품질로 이어진다는 것을 느꼈고, 외부 기술을 덧붙이기보다 상태 패턴 같은 설계 원칙으로 코드 자체의 완성도를 높이는 방향을 선택했습니다. 도메인을 깊이 이해할수록 설계가 좋아진다는 것을 배우며 개발자로서 한 단계 성장할 수 있었던 프로젝트였습니다.
+> 급여와 캘린더 모듈을 담당하며 B2B 환경을 처음 경험해보았고, 실무에서 백엔드 코드가 어떻게 활용되는지를 직접 구현해보며 배울 수 있었습니다. 특히 인사팀이 실제 업무에서 사용하는 기능을 만들어보면서, 단순한 CRUD가 아니라 회사 정책과 법규·예외 케이스가 촘촘하게 얽혀 있는 도메인을 다루는 과정 자체가 재미있었습니다. 그러면서 꼼꼼한 ERD와 모델 설계가 개발 그 자체에 반드시 필요한 토대라는 것을 깨달았습니다. 또한, 외부 기술을 덧붙이기보다 상태 머신·이벤트 분리 같은 설계 원칙으로 코드 자체의 완성도를 높이는 방향을 택하면서, 도메인을 깊이 이해할수록 설계가 좋아진다는 것도 함께 배웠습니다. 늘 함께 고민하고 부딪혀준 팀원분들 덕분에 무사히 마무리할 수 있어 감사한 프로젝트였습니다.
 
 </details>
 

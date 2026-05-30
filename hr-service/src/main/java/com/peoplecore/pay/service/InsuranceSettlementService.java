@@ -34,12 +34,12 @@ public class InsuranceSettlementService {
     private static final List<String> INSURANCE_ITEM_NAMES = List.of(ITEM_PENSION, ITEM_HEALTH, ITEM_LTC, ITEM_EMPLOYMENT);
 
     //    정산보험료 정산전용 PayItems 항목명 (6종)
-    private static final String SETTLE_HEALTH_CHARGE     = "건강보험 정산분";
-    private static final String SETTLE_LTC_CHARGE        = "장기요양 정산분";
-    private static final String SETTLE_EMPLOYMENT_CHARGE = "고용보험 정산분";
-    private static final String SETTLE_HEALTH_REFUND     = "건강보험 환급분";
-    private static final String SETTLE_LTC_REFUND        = "장기요양 환급분";
-    private static final String SETTLE_EMPLOYMENT_REFUND = "고용보험 환급분";
+    private static final String SETTLE_HEALTH_CHARGE     = "건강보험정산추가징수";
+    private static final String SETTLE_LTC_CHARGE        = "장기요양정산추가징수";
+    private static final String SETTLE_EMPLOYMENT_CHARGE = "고용보험정산추가징수";
+    private static final String SETTLE_HEALTH_REFUND     = "건강보험정산환급";
+    private static final String SETTLE_LTC_REFUND        = "장기요양정산환급";
+    private static final String SETTLE_EMPLOYMENT_REFUND = "고용보험정산환급";
 
     private static final List<String> SETTLEMENT_ITEM_NAMES = List.of(
             SETTLE_HEALTH_CHARGE, SETTLE_LTC_CHARGE, SETTLE_EMPLOYMENT_CHARGE,
@@ -375,7 +375,7 @@ public class InsuranceSettlementService {
 
 
 
-//    정산전용 PayItems 6종 로딩(건강,장기요양,고용 - 추가징수/환급
+//    정산전용 PayItems 6종 로딩(건강,장기요양,고용 - 추가징수/환급)
     private Map<String, PayItems> loadSettlementPayItems(UUID companyId) {
         List<PayItems> items = payItemsRepository
                 .findByCompany_CompanyIdAndPayItemNameInAndIsSystemTrue(companyId, SETTLEMENT_ITEM_NAMES);
