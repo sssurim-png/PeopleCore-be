@@ -200,9 +200,14 @@ public class InsuranceSettlementService {
                     .put(ds.getPayItemName(), ds.getTotalAmount());
         }
 
-//        5. 기존 정산데이터가 있으면 삭제 후 재생성
-        if (insuranceSettlementRepository.existsByCompany_CompanyIdAndSettlementFromMonthAndSettlementToMonth(companyId, fromMonth, toMonth)) {
-            insuranceSettlementRepository.deleteByCompany_CompanyIdAndSettlementFromMonthAndSettlementToMonth(companyId, fromMonth, toMonth);
+//        5. 기존 정산데이터 처리
+//        5-1. 이미 급여대장에 반영된 건이 있으면 재산정 차단(PayrollDetails 중복 방지) 삭제 후 재생성
+        if (insuranceSettlementRepository.existsByCompany_CompanyIdAndSettlementFromMonthAndSettlementToMonthAndIsAppliedTrue(companyId, fromMonth, toMonth)) {
+            throw new CustomException(ErrorCode.INSURANCE_SETTLEMENT_ALREADY_APPLIED);
+        }
+//        5-2. 미반영 상태의 기존 정산데이터만 삭제 후 재생성
+        if (insuranceSettlementRepository.existsByCompany_CompanyIdAndSettlementFromMonthAndSettlementToMonth(companyId, fromMonth, toMonth)){
+                insuranceSettlementRepository.deleteByCompany_CompanyIdAndSettlementFromMonthAndSettlementToMonth(companyId, fromMonth, toMonth);
         }
 
 //        6. 사원별 정산 계산
@@ -366,7 +371,7 @@ public class InsuranceSettlementService {
                     settlementItemMap.get(SETTLE_EMPLOYMENT_REFUND),
                     "고용보험 정산 (" + period + ")");
 
-            s.markApplied();
+            s.markApplied(reqDto.getTargetPayYearMonth());
         }
 
 //        5. 급여대장 합계 재계산
