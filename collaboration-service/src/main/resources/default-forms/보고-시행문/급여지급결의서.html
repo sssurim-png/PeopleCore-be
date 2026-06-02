@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>급여 지급결의서</title>
+<style type="text/css">
+table.tb_chit {
+  width: 800px;
+  margin-top: 1px;
+  border-collapse: collapse !important;
+  color: #000;
+  background: #fff;
+  font-size: 12px;
+  border: 0;
+  font-family: malgun gothic, dotum, arial, tahoma;
+}
+table.tb_chit table { border-collapse: collapse !important; }
+table.tb_chit tr td {
+  padding: 3px;
+  height: 20px;
+  border: 1px solid #d1d5db;
+  vertical-align: middle;
+}
+table.tb_chit table.sign_member { border: 0; }
+table.tb_chit table.sign_member tr td {
+  border: 0;
+  border-bottom: 1px solid #d1d5db;
+}
+.doc_subject {
+  height: 90px !important;
+  font-size: 24pt;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+  border: 0 !important;
+}
+.tit { background: #f9fafb; text-align: center; font-weight: bold; }
+.currency { text-align: right; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: malgun gothic, dotum, arial, tahoma;
+}
+@media print {
+  th, td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== 본문 안내 ====== -->
+<table class="tb_chit" style="margin-top:10px;">
+  <tbody>
+    <tr>
+      <td style="border-left:0; border-right:0; border-top:0; padding:8px 4px 2px 4px; font-size:10pt;">
+        ■ 급여 지급과 관련하여 아래와 같이 요청합니다.
+      </td>
+    </tr>
+    <tr>
+      <td style="border:0; text-align:center; font-size:10pt; padding:2px;">- 아 래 -</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ====== 지급 기본 정보 ====== -->
+<table class="tb_chit" style="margin-top:4px;">
+  <colgroup><col width="120px"><col width="680px"></colgroup>
+  <tbody>
+    <tr>
+      <td class="tit">근&nbsp;무&nbsp;월</td>
+      <td data-key="payMonth" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="tit">지급예정일</td>
+      <td data-key="payScheduledDate" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="tit">지급인원</td>
+      <td data-key="payHeadcount" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="tit">지급금액</td>
+      <td data-key="totalPayAmount" contenteditable="true"></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ====== 지급상세 ====== -->
+<table class="tb_chit" style="margin-top:10px;">
+  <colgroup><col width="200px"><col width="300px"><col width="300px"></colgroup>
+  <tbody>
+    <tr>
+      <td class="tit" colspan="3">1. 지급상세</td>
+    </tr>
+    <tr>
+      <td class="tit">항목명</td>
+      <td class="tit">과세금액</td>
+      <td class="tit">비과세금액</td>
+    </tr>
+    </tbody>
+    <!-- 동적 영역: 백엔드가 항목 행 + 소계 + 합계 채움 -->
+    <tbody class="dynamic-payment-rows">
+    </tbody>
+  </tbody>
+</table>
+
+<!-- ====== 공제상세 ====== -->
+<table class="tb_chit" style="margin-top:10px;">
+  <colgroup><col width="200px"><col width="600px"></colgroup>
+  <tbody>
+    <tr>
+      <td class="tit" colspan="2">2. 공제상세</td>
+    </tr>
+    <tr>
+      <td class="tit">항목명</td>
+      <td class="tit">금액</td>
+    </tr>
+    </tbody>
+    <tbody class="dynamic-deduction-rows">
+    </tbody>
+  </tbody>
+</table>
+
+<!-- ====== 부서별 요약 ====== -->
+<table class="tb_chit" style="margin-top:10px;">
+  <colgroup>
+    <col width="180px"><col width="100px"><col width="180px"><col width="180px"><col width="160px">
+  </colgroup>
+  <tbody>
+  <tr><td class="tit" colspan="5">3. 부서별 요약</td></tr>
+  <tr>
+    <td class="tit">부서</td>
+    <td class="tit">인원</td>
+    <td class="tit">지급합계</td>
+    <td class="tit">공제합계</td>
+    <td class="tit">실지급액</td>
+  </tr>
+  </tbody>
+  <tbody class="dynamic-dept-summary">
+  </tbody>
+</table>
+
+<!-- ====== 사원 명단 접기 ====== -->
+<details style="margin-top:10px;" class="dynamic-employee-list">
+  <summary style="cursor:pointer; font-size:12px; font-weight:bold; padding:4px 0;">4. 사원 명단</summary>
+  <table class="tb_chit" style="margin-top:4px;">
+    <colgroup>
+      <col width="200px"><col width="200px"><col width="180px"><col width="220px">
+    </colgroup>
+    <tbody>
+    <tr>
+      <td class="tit">부서</td>
+      <td class="tit">사원명</td>
+      <td class="tit">직급</td>
+      <td class="tit">실지급액</td>
+    </tr>
+    </tbody>
+    <tbody>
+    <!-- 백엔드가 사원 행 채움 (마커는 details 자체) -->
+    </tbody>
+  </table>
+</details>
+
+
+</body>
+</html>

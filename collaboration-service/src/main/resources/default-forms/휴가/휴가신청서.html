@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>휴가 신청서</title>
+<style>
+  body {
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 20px;
+    background: #fff;
+  }
+  .approval-document {
+    width: 720px;
+    margin: 0 auto;
+    background: #fff;
+  }
+  .doc-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 10px;
+    padding: 20px 0 30px 0;
+    border-bottom: 2px solid #d1d5db;
+    margin-bottom: 0;
+  }
+  table.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  table.form-table th,
+  table.form-table td {
+    border: 1px solid #d1d5db;
+    padding: 8px 12px;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+  table.form-table th {
+    background: #f9fafb;
+    text-align: center;
+    font-weight: bold;
+    width: 130px;
+  }
+  table.form-table td {
+    background: #fff;
+  }
+  .use-row th {
+    background: #eaf5ef;
+  }
+  .use-cell {
+    text-align: center;
+    font-weight: bold;
+    color: #1D9E75;
+  }
+  .reason-cell {
+    height: 120px;
+    vertical-align: top;
+  }
+  .attach-cell {
+    min-height: 40px;
+    color: #6b7280;
+    font-size: 12px;
+  }
+  .notice {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+  }
+  .notice ul {
+    margin: 5px 0 0 20px;
+    padding: 0;
+  }
+  .field-input { width: 100%; border: none; font-size: 14px; font-family: inherit; background: transparent; outline: none; }
+  .field-center { text-align: center; }
+  .field-label { color: #1D9E75; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div class="approval-document">
+
+  <!-- 신청자 정보 -->
+  <table class="form-table">
+    <tr>
+      <th>신 청 자</th>
+      <td><input type="text" name="emp_name" class="field-input" readonly></td>
+      <th>부&nbsp;&nbsp;&nbsp;&nbsp;서</th>
+      <td><input type="text" name="emp_dept_name" class="field-input" readonly></td>
+    </tr>
+    <tr>
+      <th>직&nbsp;&nbsp;&nbsp;&nbsp;급</th>
+      <td><input type="text" name="emp_grade_name" class="field-input" readonly></td>
+      <th>직&nbsp;&nbsp;&nbsp;&nbsp;책</th>
+      <td><input type="text" name="emp_title_name" class="field-input" readonly></td>
+    </tr>
+    <tr>
+      <th>신 청 일</th>
+      <td colspan="3">
+        <input type="date" name="request_date" class="field-input field-center">
+      </td>
+    </tr>
+  </table>
+
+  <!-- 휴가 정보 -->
+  <table class="form-table">
+    <tr class="use-row">
+      <th>휴가 종류</th>
+      <td colspan="3">
+        <input type="text" name="vacationTypeName" class="field-input field-center field-label" placeholder="예: 연차, 반차, 병가">
+        <!-- 모달 흐름에서 식별자 자동 주입, 직접 입력 시에는 비어있음 -->
+        <input type="hidden" name="infoId">
+      </td>
+    </tr>
+    <tr class="use-row">
+      <th>요청 휴가일수</th>
+      <td colspan="3" class="use-cell">
+        <input type="number" name="vacReqUseDay" class="field-input field-center field-label" min="0" step="0.5" placeholder="0"> 일
+      </td>
+    </tr>
+    <tr>
+      <th>휴가 일자</th>
+      <td colspan="3">
+        <textarea name="vacReqDatesText" rows="4"
+                  placeholder="예: 2026-05-19 (화) 09:00 ~ 18:00"
+                  style="width:100%;resize:vertical;white-space:pre-line;"></textarea>
+      </td>
+    </tr>
+  </table>
+
+  <!-- 사유 -->
+  <table class="form-table">
+    <tr>
+      <th>사&nbsp;&nbsp;&nbsp;&nbsp;유</th>
+      <td class="reason-cell">
+        <textarea name="vacReqReason" rows="5" class="field-input" style="resize: vertical;"></textarea>
+      </td>
+    </tr>
+  </table>
+
+  <!-- 첨부파일 -->
+  <table class="form-table">
+    <tr>
+      <th>첨부파일</th>
+      <td class="attach-cell">※ 아래 첨부 영역에서 관리됩니다</td>
+    </tr>
+  </table>
+
+  <p style="text-align:center; margin-top:30px; font-size:15px;">
+    위와 같이 휴가를 신청합니다.
+  </p>
+
+</div>
+
+</body>
+</html>

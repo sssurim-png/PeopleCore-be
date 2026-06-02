@@ -1,0 +1,111 @@
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 2px solid #d1d5db; font-size: 11pt;">
+<colgroup>
+<col width="120"/><col width="280"/><col width="120"/><col width="280"/>
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4" style="padding: 8px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">평가 대상자</td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">소속</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="deptName" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">입사일</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="hireDate" style="border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">계약 만료일</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="contractEnd" style="border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">생년월일</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="date" name="birthDate" style="border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">근속</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="tenure" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold;">경력</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><input type="text" name="career" style="width:100%;border:0;outline:none;font-family:inherit;font-size:11pt;background:transparent;"/></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 2px solid #d1d5db; font-size: 10pt;">
+<colgroup>
+<col width="140"/><col width="50"/><col width="440"/><col width="85"/><col width="85"/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="5" style="padding: 8px; border: 1px solid #d1d5db; background: #f9fafb;">평가기준 — 평점(항목별 5점 만점)</th>
+</tr>
+<tr>
+<th style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb;">항목</th>
+<th style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb;">비중</th>
+<th style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb;">내용</th>
+<th style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb;">1차 심사(40%)</th>
+<th style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb;">2차 심사(60%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">직무지식</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">3</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;">전공지식을 충분히 현업에 활용하였는가?</td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalKnowledge1" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalKnowledge2" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">개인과제 완수</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">3</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;">개인적으로 부여된 과제를 충실히 완수하였는가?</td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalTask1" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalTask2" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">적시처리</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">3</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;">주어진 Task에 대한 기한을 넘기지 않고 처리하였는가?</td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalTimely1" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalTimely2" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">성과창출</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">7</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;">주어진 Task에 대한 高성과를 창출하여 조직에 기여하였는가?</td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalPerformance1" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalPerformance2" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">근태</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">2</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;">무단 결근, 지각 등을 하지 않았는가?</td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalAttendance1" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalAttendance2" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">귀속의식</td>
+<td style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">2</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;">개인의 이해관계에 집착하지 않으며, 회사의 이익을 우선으로 생각하는가?</td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalLoyalty1" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalLoyalty2" min="0" max="5" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;"/></td>
+</tr>
+<tr style="background:#f9fafb;font-weight:bold;">
+<td colspan="3" style="padding: 6px; border: 1px solid #d1d5db; text-align: center;">합 계</td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalTotal1" min="0" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;font-weight:bold;"/></td>
+<td style="padding: 4px; border: 1px solid #d1d5db;"><input type="number" name="evalTotal2" min="0" step="0.1" style="width:100%;border:0;outline:none;font-family:inherit;font-size:10pt;background:transparent;text-align:center;font-weight:bold;"/></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table style="width: 800px; font-family: 'malgun gothic', dotum, arial, tahoma; border-collapse: collapse; border: 2px solid #d1d5db; font-size: 11pt;">
+<colgroup>
+<col width="120"/><col width="680"/>
+</colgroup>
+<tbody>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">총평</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><textarea name="overallReview" rows="4" style="width:100%;border:0;outline:none;resize:vertical;font-family:inherit;font-size:11pt;background:transparent;"></textarea></td>
+</tr>
+<tr>
+<td style="padding: 6px; border: 1px solid #d1d5db; background: #f9fafb; text-align: center; font-weight: bold; vertical-align: middle;">처우결정</td>
+<td style="padding: 6px; border: 1px solid #d1d5db;"><textarea name="treatmentDecision" rows="3" style="width:100%;border:0;outline:none;resize:vertical;font-family:inherit;font-size:11pt;background:transparent;"></textarea></td>
+</tr>
+</tbody>
+</table>

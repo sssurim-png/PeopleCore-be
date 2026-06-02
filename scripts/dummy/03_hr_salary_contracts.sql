@@ -29,7 +29,7 @@ use peoplecore;
 
 -- ▼ 회사 ▼
 SET @company_name := 'peoplecore';
-SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name);
+SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name COLLATE utf8mb4_unicode_ci);
 
 SELECT
   IFNULL(BIN_TO_UUID(@cid),

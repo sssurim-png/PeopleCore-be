@@ -32,7 +32,7 @@ use peoplecore;
 SET @company_name := 'peoplecore';
 
 -- 회사명으로 UUID 자동 조회 (BINARY(16) 그대로 반환)
-SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name);
+SET @cid := (SELECT company_id FROM company WHERE company_name = @company_name COLLATE utf8mb4_unicode_ci);
 
 -- 회사 못 찾으면 @cid NULL → 아래 INSERT FK 위반으로 즉시 실패
 SELECT
