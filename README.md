@@ -315,14 +315,14 @@
 </p> 
 
 - 일정참석자 - 캘린더 일정 등록 알림
-<p align="center"> 
-  <img src="picture/calendar_event_attendees_alarm.png" alt="일정참석자 일정등록 알림 화면" width="900" /> 
-</p> 
+  <p align="center"> 
+    <img src="picture/calendar_event_attendees_alarm.png" alt="일정참석자 일정등록 알림 화면" width="900" /> 
+  </p> 
 
 - 일정참석자 - 캘린더 일정 조회 
-<p align="center"> 
-  <img src="picture/calendar_event_attendee_read.png" alt="일정참석자 일정조회 화면" width="900" /> 
-</p> 
+  <p align="center"> 
+    <img src="picture/calendar_event_attendee_read.png" alt="일정참석자 일정조회 화면" width="900" /> 
+  </p> 
 
 - 관심캘린더
   - 관심캘린더 등록
@@ -688,16 +688,21 @@
 - 급여정책 설정 (최고권한자 설정 화면) 
   - 급여지급 설정 
   <img src="picture/1.급여정책설정-급여지급설정.png" alt="급여지급설정 화면" width="900" />
+
   - 지급 항목 관리 
   <img src="picture/2.급여정책설정-지급항목관리.png" alt="지급항목관리 화면" width="900" /> 
+
   - 공제 항목 관리
-  <img src="picture/3.급여정책설정-공제항목관리.png" alt="공제항목관리 화면" width="900" /> 
+  <img src="picture/3.급여정책설정-공제항목관리.png" alt="공제항목관리 화면" width="900" />
+
   - 법정수당산정
   <img src="picture/4.급여정책설정-법정수당산정.png" alt="법정수당산정 화면" width="900" />
+  
   - 사회보험요율표
   <img src="picture/5.급여정책설정-사회보험요율표.png" alt="사회보험요율표 화면" width="900" />
+  
   - 퇴직연금 설정
-  <img src="picture/7.급여정책설정-퇴직연금설정.png" alt="퇴직연금설정 화면" width="900" /> 
+  <img src="picture/7.급여정책설정-퇴직연금설정.png" alt="퇴직연금설정 화면" width="900" />
 
 - 급여관리 (HR담당자 업무 화면) 
   - 사원별 급여관리-연봉 확인 
@@ -778,7 +783,7 @@
 각 카테고리를 펼치면 관련 설계·운영 문서로 이동합니다.
 
 <details>
-<summary><h3>통합검색</h3></summary>
+<summary><strong>통합검색</strong></summary>
 
 | 문서 | 핵심 내용 |
 |------|-----------|
@@ -842,6 +847,19 @@
 |---------------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | [시즌 무결성 아키텍처](docs_md/evaluation-season-integrity.md)               | `Season.formSnapshot` 박제 · `EvalGrade.@Version` 낙관적 락 · 평가자 퇴직 `AFTER_COMMIT` 이벤트 보정 |
 | [자동 산식 - Z-score + 강제분포](docs_md/evaluation-grade-calculation.md)  | 점수 집계 → 가중치 → Z-score 팀장 편향 보정 → 강제분포 4단 알고리즘 · BigDecimal 결정성                       |
+
+</details>
+
+
+<details>
+<summary><font size="5"><strong>급여</strong></font></summary>
+
+| 문서                                                                        | 핵심 내용                                                                                                                                                                                              |
+|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [급여 도메인 상태 머신 + 이벤트 자동화](docs_md/pay-state-event-architecture.md)         | `PayrollEmpStatus` / `SeverancePays` / `PensionDeposit` 다수 상태 머신 · 엔티티 메서드 가드 + 멱등 분기 · `PayrollPaidEvent` / `EmployeeRetiredEvent` + `@TransactionalEventListener(AFTER_COMMIT)` + `@Order` 직렬화 |
+| [결재 양식 동적 빌드 + 스냅샷](docs_md/pay-approval-html-snapshot.md)                | 활성 PayItem 기준 결의서 HTML 동적 빌드 → 결재 문서에 스냅샷 영구 보존으로 시점 정합성 + 최신 데이터 반영 동시 만족 · 결재팀 (양식 골격 버전관리) / hr-service (동적 본문) 책임 분담                                                                |
+| [Redis 캐시 전략 - Cache-Aside + 패턴 무효화](docs_md/pay-redis-cache-strategy.md)  | `EmpSalaryCacheService` (관리자) + `MySalaryCacheService` (사원 본인) Cache-Aside · 캐시 키 설계 (회사+사원+연도) · 패턴 기반 일괄 무효화 (`keys(pattern) + delete`) · 별도 Redis 템플릿 (`hrCacheRedisTemplate`) 분리             |
+| [은행별 이체 Strategy + Factory](docs_md/pay-bank-transfer-strategy.md)        | `BankTransferFileGenerator` 인터페이스 + 은행별 구현체 6종 (KB/신한/하나/우리/농협/IBK) · `BankTransferFileFactory` 로 회사 주거래은행 → Generator 라우팅 · 공통 빌더 (`ExcelTransferBuilder`) + 은행별 컬럼 차별화                          |
 
 </details>
 
