@@ -1,0 +1,54 @@
+# PeopleCore HR 분석 AI 의존성
+# Docker 이미지 빌드 시 자동 설치 (다른 사람은 Python·pip 신경 X)
+
+# ─── 웹서버 (HTTP API) ───
+fastapi==0.115.4              # API 프레임워크
+uvicorn[standard]==0.32.0     # FastAPI 실행 서버
+pydantic==2.9.2               # 입출력 데이터 검증
+python-dotenv==1.0.1          # .env 파일 읽기
+
+# ─── LangChain / LangGraph (AI 코어) ───
+langchain==0.3.7              # LLM 빌딩블록
+langchain-core==0.3.15        # 핵심 추상화
+langgraph==0.2.43             # StateGraph (Custom 그래프)
+langgraph-checkpoint-sqlite==2.0.1  # 영속 체크포인터 (CHECKPOINT_TYPE=sqlite 시 사용)
+langchain-community==0.3.5    # 커뮤니티 통합
+
+# ─── LLM·임베딩 (Ollama 로컬) ───
+langchain-ollama==0.2.0       # LangChain ↔ Ollama 어댑터
+ollama==0.3.3                 # Ollama Python 클라이언트
+
+# ─── 클라우드 LLM (OpenAI gpt-4o-mini, explain·resolve_context 가속용) ───
+langchain-openai==0.2.5       # LangChain ↔ OpenAI 어댑터
+
+# ─── RAG (Elasticsearch) ───
+langchain-elasticsearch==0.3.0  # LangChain ↔ ES vector store
+elasticsearch==8.15.1           # ES Python 클라이언트
+
+# ─── DB 직접 (분석용 read-only) ───
+sqlalchemy==2.0.35            # ORM·쿼리 빌더 (langchain-community 0.3.5 가 <2.0.36 요구)
+pymysql==1.1.1                # MySQL 드라이버 (pure Python)
+
+# ─── Spring API 호출 (현재 미사용, 보존) ───
+requests==2.32.3              # PeopleCore hr-service REST 호출 (혹시 필요 시)
+httpx>=0.27,<0.28             # async HTTP — /ai-reports/upload (HITL 저장)
+
+# ─── 캐싱 ───
+redis==5.2.0                  # Redis 클라이언트 (응답 캐싱)
+
+# ─── GraphRAG (Phase 3) ───
+nano-graphrag>=0.0.8          # 경량 GraphRAG (관계·요약 추론용)
+networkx>=3.2                 # 그래프 자료구조
+
+# ─── Neo4j (Phase 4) ───
+neo4j>=5.20.0                 # 공식 Bolt 드라이버 — MERGE 멱등성 dump + CDC consumer
+kafka-python>=2.0.2           # Kafka 클라이언트 (CDC consumer)
+# - 인덱싱: docs/ 의 md → 엔티티/관계 추출 → 그래프 (1회 OpenAI)
+# - 검색:  쿼리 → 그래프 traversal → 답변 (로컬 Ollama)
+
+# ─── 마크다운 처리 (RAG 자료) ───
+python-frontmatter==1.1.0     # 마크다운 frontmatter 파싱
+markdown==3.7                 # 마크다운 → HTML
+
+# ─── 데이터·통계 ───
+numpy==1.26.4                 # 수치 계산 (langchain 0.3.x 호환을 위해 1.x 고정)

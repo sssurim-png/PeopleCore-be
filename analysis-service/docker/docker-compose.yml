@@ -1,0 +1,212 @@
+version: '3.8'
+
+# ─────────────────────────────────────────────────────
+# PeopleCore HR 분석 AI — 분리 운영 compose
+#
+# 사용 방법:
+#   $ cd analysis-service/docker
+#   $ docker compose up -d
+#
+# 의존성 (사전 가동 필요):
+#   1. PeopleCore 메인 docker-compose 의 Elasticsearch (port 9200)
+#   2. MySQL (host.docker.internal:3306) + 더미 데이터 적재 완료
+#   3. Spring hr-service (보고서 저장 용, port 8080)
+#
+# 자동화:
+#   - ollama-init: 모델 (LLM + 임베딩) 자동 다운로드
+#   - views-init: 분석 VIEW SQL 자동 적용
+#   - rag-init:   마크다운 → ES 자동 인덱싱
+#   - analysis-service: 위 3개 init 완료 후 시작
+# ─────────────────────────────────────────────────────
+
+services:
+
+  # ─── Ollama: 로컬 LLM·임베딩 호스트 ───
+  ollama:
+    image: ollama/ollama:0.22.1
+    pull_policy: missing
+    container_name: analysis-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_NUM_PARALLEL=2
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # ─── Ollama 모델 자동 다운로드 (1회) ───
+  ollama-init:
+    image: ollama/ollama:0.22.1
+    pull_policy: missing
+    container_name: analysis-ollama-init
+    depends_on:
+      ollama:
+        condition: service_healthy
+    env_file:
+      - ../.env
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    entrypoint: >
+      sh -c "
+      echo '=== Ollama 모델 다운로드 ===';
+      ollama pull $${LLM_MODEL};
+      ollama pull $${EMBEDDING_MODEL};
+      echo '=== 다운로드 완료 ===';
+      ollama list;
+      exit 0;
+      "
+    restart: "no"
+
+  # ─── 분석 VIEW + 인덱스 자동 적용 (1회) ───
+  views-init:
+    image: mysql:8.0
+    pull_policy: missing
+    container_name: analysis-views-init
+    env_file:
+      - ../.env
+    volumes:
+      - ../scripts/analysis_views.sql:/views.sql:ro
+      - ../scripts/analysis_indexes.sql:/indexes.sql:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    entrypoint: >
+      sh -c "
+      echo '=== MySQL 대기 ===';
+      until mysqladmin ping -h $${DB_HOST} -P $${DB_PORT} -u $${DB_USER} -p$${DB_PASS} --silent 2>/dev/null; do
+        echo 'MySQL 미준비, 2초 후 재시도...';
+        sleep 2;
+      done;
+      echo '=== 분석 VIEW 적용 ===';
+      mysql -h $${DB_HOST} -P $${DB_PORT} -u $${DB_USER} -p$${DB_PASS} $${DB_NAME} < /views.sql;
+      echo '=== 분석 인덱스 적용 (이미 있으면 에러 무시) ===';
+      mysql -h $${DB_HOST} -P $${DB_PORT} -u $${DB_USER} -p$${DB_PASS} --force $${DB_NAME} < /indexes.sql || true;
+      echo '=== 적용 완료 ===';
+      mysql -h $${DB_HOST} -P $${DB_PORT} -u $${DB_USER} -p$${DB_PASS} $${DB_NAME} -e \"SHOW FULL TABLES WHERE Table_type='VIEW';\";
+      exit 0;
+      "
+    restart: "no"
+
+  # ─── RAG 마크다운 자동 인덱싱 (1회) ───
+  rag-init:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: analysis-rag-init
+    depends_on:
+      ollama-init:
+        condition: service_completed_successfully
+    env_file:
+      - ../.env
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: ["python", "-m", "analysis.rag.ingest"]
+    restart: "no"
+
+  # ─── 분석 AI 서비스 (FastAPI + LangGraph) ───
+  analysis-service:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: analysis-service
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+    depends_on:
+      ollama:
+        condition: service_healthy
+      ollama-init:
+        condition: service_completed_successfully
+      views-init:
+        condition: service_completed_successfully
+      rag-init:
+        condition: service_completed_successfully
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+
+  # ─── Neo4j CDC Consumer (Phase 4 Step 3) ───
+  # Kafka(Debezium) → Cypher 로 MySQL ↔ Neo4j 실시간 동기화.
+  # analysis-service 이미지 재활용 + 다른 command 만 실행.
+  neo4j-cdc-consumer:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: neo4j-cdc-consumer
+    command: ["python", "-m", "analysis.cdc.neo4j_consumer"]
+    env_file:
+      - ../.env
+    environment:
+      - KAFKA_BOOTSTRAP=kafka:29092         # 루트 compose 의 INTERNAL listener 사용
+      - NEO4J_URI=bolt://neo4j:7687
+    depends_on:
+      neo4j:
+        condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    networks:
+      - default
+      - peoplecore_kafka_net
+
+  # ─── Neo4j (Phase 4 — DB 관계 그래프) ───
+  # 사원·평가·근태 데이터를 그래프로 저장 — 다중 hop 관계 추론·시각화용.
+  # 분석 서비스 전용 인프라라 여기에 둠 (루트 compose 가 아닌).
+  neo4j:
+    image: neo4j:5-community
+    container_name: neo4j
+    ports:
+      - "7474:7474"   # Browser UI
+      - "7687:7687"   # Bolt protocol (드라이버 접근)
+    environment:
+      - NEO4J_AUTH=neo4j/test1234
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_server_memory_heap_initial__size=512m
+      - NEO4J_server_memory_heap_max__size=1G
+      - NEO4J_server_memory_pagecache_size=512m
+    volumes:
+      - neo4j-data:/data
+      - neo4j-logs:/logs
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+# ─── 영구 볼륨 ───
+volumes:
+  ollama_data:
+    name: analysis_ollama_data
+  neo4j-data:
+    name: analysis_neo4j_data
+  neo4j-logs:
+    name: analysis_neo4j_logs
+
+# ─── 네트워크 ───
+# CDC consumer 가 루트 compose 의 Kafka 에 접속하려면 외부 네트워크 attach 필요.
+# 루트 docker-compose.yml 이 default network 로 "be23-fin-peoplecore2_default" 를 만듦.
+networks:
+  default:
+  peoplecore_kafka_net:
+    name: be23-fin-peoplecore2_default
+    external: true
