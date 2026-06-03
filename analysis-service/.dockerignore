@@ -1,0 +1,43 @@
+# Docker 이미지에 포함하지 않을 파일
+# (이미지 크기 ↓, 빌드 속도 ↑)
+
+# ─── 환경변수 (보안) ───
+.env
+.env.local
+.env.production
+
+# ─── Python ───
+__pycache__/
+*.py[cod]
+.Python
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# ─── Git ───
+.git/
+.gitignore
+
+# ─── IDE ───
+.idea/
+.vscode/
+*.iml
+
+# ─── OS ───
+.DS_Store
+Thumbs.db
+
+# ─── Docker (자기 자신) ───
+docker/
+Dockerfile
+.dockerignore
+
+# ─── 문서 (이미지에 불필요) ───
+README.md
+*.md
+
+# ─── 로그·임시 ───
+*.log
+logs/
+*.tmp
